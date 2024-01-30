@@ -193,6 +193,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="S2_Wk5_Weighted_and_NonLinear_Regression.html">Weighted and Non-Linear Regression Analysis</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spring Semester Week 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk6_Pandas.html">Pandas DataFrames</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Useful_Functions.html">Useful Functions</a></li>
@@ -429,8 +433,8 @@ document.write(`
 <p>To quickly perform the same calculations we did last week in our manual regression, we can use the linregress function from the scipy.stats package in Python. The linregress function will not only return the intercept and gradient of the line of best fit for a given data set, but will also return the standard errors associated with the intercept and gradient and the Pearson’s correlation coefficient.</p>
 <p>The Pearson correlation coefficient, r, can take on any value between -1 and 1, and is a measure of the strength of the correlation between two variables. If the correlation coefficient is equal to -1, this is indicative of a strong negative correlation, whereas a correlation coefficient equal to 1 is indicative of a strong positive correlation. If there is no correlation the value will be equal to 0. A value between 0 and -1 or 0 and 1 indicates that there is a correlation, the strength of which is indicated by the magnitude of the value.</p>
 <p>You can calculate the Pearson correlation coefficient yourself using the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7fb8c09-e153-4788-bd49-d25b2c4f6cfe">
-<span class="eqno">(25)<a class="headerlink" href="#equation-c7fb8c09-e153-4788-bd49-d25b2c4f6cfe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-671bd740-1f07-44dc-ad8f-511583a726a6">
+<span class="eqno">(25)<a class="headerlink" href="#equation-671bd740-1f07-44dc-ad8f-511583a726a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 r = \frac{\sum{(x_i - \bar{x})(y_i - \bar{y})}}{\sum{(x_i - \bar{x})^2} \cdot \sum{(y_i - \bar{y})^2}}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x_i\)</span> is a given value of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the mean value of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y_i\)</span> is a given value of <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(\bar{y}\)</span> is the mean value of <span class="math notranslate nohighlight">\(y\)</span>.</p>
@@ -475,11 +479,11 @@ r = \frac{\sum{(x_i - \bar{x})(y_i - \bar{y})}}{\sum{(x_i - \bar{x})^2} \cdot \s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the line of best fit is:  3.071  +\-  0.103 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The gradient of the line of best fit is:  2.993  +\-  0.059 
 
-The intercept of the line of best fit is:  13.273  +\-  6.082 
+The intercept of the line of best fit is:  13.545  +\-  3.513 
 
-The Pearsons correlation coefficient is:  0.9949945785645848
+The Pearsons correlation coefficient is:  0.9982332130295367
 </pre></div>
 </div>
 </div>
@@ -499,7 +503,7 @@ The Pearsons correlation coefficient is:  0.9949945785645848
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b45312111accc22d0e663ff7b619bb5de507c558184b9240137876660915fed4.png" src="_images/b45312111accc22d0e663ff7b619bb5de507c558184b9240137876660915fed4.png" />
+<img alt="_images/b4bc7c3d09e0fa392962d514e2cddcd992a98d281ee2e820f6f05aced95b9ee0.png" src="_images/b4bc7c3d09e0fa392962d514e2cddcd992a98d281ee2e820f6f05aced95b9ee0.png" />
 </div>
 </div>
 </div>
