@@ -1,0 +1,2255 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas DataFrames &#8212; PHYS11006 - Computing Skills Workshop</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S2_Wk6_Pandas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Useful Functions" href="Useful_Functions.html" />
+    <link rel="prev" title="Weighted and Non-Linear Regression Analysis" href="S2_Wk5_Weighted_and_NonLinear_Regression.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to PHY11006 Computing Skills
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Autumn Semester Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk1_Performing_Calculations_with_Computers_I.html">Performing Calculations with Computers I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk1_Measurements_Errors_and_Uncertainty.html">Measurements, Errors and Uncertainty</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autumn Semester Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk2_Performing_Calculations_with_Computers_II.html">Performing Calculations with Computers II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk2_Functions_and_Modules.html">Functions and Modules</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autumn Semester Week 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk3_Conditional_Statements_and_Loops.html">Conditional Statements and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk3_Visualising_Data_and_Linear_Regression.html">Visualising Data and Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autumn Semester Week 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk4_Simple_Linear_Regression.html">Simple Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autumn Semester Week 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk5_Solving_Coding_Problems.html">Solving Coding Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk5_Artificial_Intelligence.html">Artificial Intelligence (AI)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autumn Semester Week 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk6_Computing_Skills_Assessment.html">Computing Skills Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spring Semester Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk2_Take_Your_Barometer_For_A_Walk.html">Take Your Barometer For A Walk!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spring Semester Week 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk5_Weighted_and_NonLinear_Regression.html">Weighted and Non-Linear Regression Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spring Semester Week 6</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas DataFrames</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Useful_Functions.html">Useful Functions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FS2_Wk6_Pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/S2_Wk6_Pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas DataFrames</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-pandas">Why use Pandas?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-scratch">Creating A DataFrame from Scratch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do-with-a-dataframe">What can we do with a DataFrame?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-our-dataframe">Getting to know our DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-data">Replacing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping">Looping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-data-from-a-dataframe">Plotting Data from a DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-pandas-dataframe-functions">Useful Pandas DataFrame Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activities">Activities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brazil-vs-portugal">1. Brazil vs Portugal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-earning">2. Learning = Earning?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-price-of-greatness-is-responsibility">3. “The price of greatness is responsibility.”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid-19">4. Covid-19</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-statistics">5. Global Statistics</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandas-dataframes">
+<h1>Pandas DataFrames<a class="headerlink" href="#pandas-dataframes" title="Permalink to this heading">#</a></h1>
+<p><img alt="image, alt = &quot;An image of a panda working on some code with a smaller panda sat next to them.&quot;" src="_images/Panda.jpg" /></p>
+<div class="section" id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand the advantages of using Pandas DataFrames.</p></li>
+<li><p>Be able to create a DataFrame by importing data or converting a dictionary.</p></li>
+<li><p>Be able to present, locate, filter and modify data within a DataFrame.</p></li>
+<li><p>Be able to use use DataFrame functions</p></li>
+</ul>
+<p>Today we are going to look at a new Python library called Pandas. This library may be used when analysing more complex datasets.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="why-use-pandas">
+<h2>Why use Pandas?<a class="headerlink" href="#why-use-pandas" title="Permalink to this heading">#</a></h2>
+<p>Up to this point in your degree it is likely that you have only worked with small data sets and that analysing your data has not posed too many challanges beyond those associated with learning a new skill. For this sort of work the methods and tools we have used to this point are more than sufficient, however as we begin to work with larger and more complex datasets, these methods may become inefficient and labourious - enter pandas. The key advantages of learning to use pandas are:</p>
+<ul class="simple">
+<li><p>Pandas is very useful for working with large amounts of data.</p></li>
+<li><p>Unlike numpy data does not have to be numeric.</p></li>
+<li><p>Data can be cleaned using pandas.</p></li>
+<li><p>Data can be filtered using pandas.</p></li>
+<li><p>Subsets of data can be extracted easily from a pandas <em>dataframe</em>.</p></li>
+<li><p>Pandas is used in data science.</p></li>
+</ul>
+<p>One key disadvantage of using numpy is that it is unable to use categorical data (e.g. names, places, types, etc.) and instead can only deal with numbers. Take a look at the example data below and what happens when we try to feed it into numpy from a csv file:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Name</p></th>
+<th class="text-center head"><p>Age</p></th>
+<th class="text-center head"><p>Eye Colour</p></th>
+<th class="text-center head"><p>Height (m)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Joan</p></td>
+<td class="text-center"><p>54</p></td>
+<td class="text-center"><p>Brown</p></td>
+<td class="text-center"><p>1.54</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Davide</p></td>
+<td class="text-center"><p>36</p></td>
+<td class="text-center"><p>Blue</p></td>
+<td class="text-center"><p>1.85</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Liam</p></td>
+<td class="text-center"><p>29</p></td>
+<td class="text-center"><p>Hazel</p></td>
+<td class="text-center"><p>1.74</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Emily</p></td>
+<td class="text-center"><p>28</p></td>
+<td class="text-center"><p>Green</p></td>
+<td class="text-center"><p>1.64</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Carlos</p></td>
+<td class="text-center"><p>15</p></td>
+<td class="text-center"><p>Green</p></td>
+<td class="text-center"><p>1.77</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Katie</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>Blue</p></td>
+<td class="text-center"><p>1.73</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Ross</p></td>
+<td class="text-center"><p>26</p></td>
+<td class="text-center"><p>Blue</p></td>
+<td class="text-center"><p>1.79</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Zack</p></td>
+<td class="text-center"><p>35</p></td>
+<td class="text-center"><p>Hazel</p></td>
+<td class="text-center"><p>1.55</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Daisy</p></td>
+<td class="text-center"><p>78</p></td>
+<td class="text-center"><p>Brown</p></td>
+<td class="text-center"><p>1.50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Kim</p></td>
+<td class="text-center"><p>7</p></td>
+<td class="text-center"><p>Blue</p></td>
+<td class="text-center"><p>1.10</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Schmonathan</p></td>
+<td class="text-center"><p>68</p></td>
+<td class="text-center"><p>Brown</p></td>
+<td class="text-center"><p>1.68</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Jamantha</p></td>
+<td class="text-center"><p>57</p></td>
+<td class="text-center"><p>Green</p></td>
+<td class="text-center"><p>1.43</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Carlos</p></td>
+<td class="text-center"><p>20</p></td>
+<td class="text-center"><p>Amber</p></td>
+<td class="text-center"><p>1.91</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  nan   nan   nan   nan]
+ [  nan 54.     nan  1.54]
+ [  nan 36.     nan  1.85]
+ [  nan 29.     nan  1.74]
+ [  nan 28.     nan  1.64]
+ [  nan 15.     nan  1.77]
+ [  nan 12.     nan  1.73]
+ [  nan 26.     nan  1.79]
+ [  nan 35.     nan  1.55]
+ [  nan 78.     nan  1.5 ]
+ [  nan  7.     nan  1.1 ]
+ [  nan 68.     nan  1.68]
+ [  nan 57.     nan  1.43]
+ [  nan 20.     nan  1.91]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is clear that numpy is unable to be used when processing this data as it returns “nan” values (nan = not a number). Now let’s try using a pandas to import the same data:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Joan</td>
+      <td>54</td>
+      <td>Blue</td>
+      <td>1.54</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Davide</td>
+      <td>36</td>
+      <td>Brown</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liam</td>
+      <td>29</td>
+      <td>Hazel</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Emily</td>
+      <td>28</td>
+      <td>Green</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Carlos</td>
+      <td>15</td>
+      <td>Green</td>
+      <td>1.77</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Katie</td>
+      <td>12</td>
+      <td>Blue</td>
+      <td>1.73</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Ross</td>
+      <td>26</td>
+      <td>Blue</td>
+      <td>1.79</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Zack</td>
+      <td>35</td>
+      <td>Hazel</td>
+      <td>1.55</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Daisy</td>
+      <td>78</td>
+      <td>Brown</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Kim</td>
+      <td>7</td>
+      <td>Blue</td>
+      <td>1.10</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Schmonathan</td>
+      <td>68</td>
+      <td>Brown</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Jamantha</td>
+      <td>57</td>
+      <td>Green</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Carlos</td>
+      <td>20</td>
+      <td>Amber</td>
+      <td>1.91</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas has not only been able to read in all of the data from the csv file, but it has also presented the data much more clearly. This is what we refer to as a <em>DataFrame</em>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="creating-a-dataframe-from-scratch">
+<h2>Creating A DataFrame from Scratch<a class="headerlink" href="#creating-a-dataframe-from-scratch" title="Permalink to this heading">#</a></h2>
+<p>It is often the case that rather than importing data into a DataFrame, we may just want to create one in our script. To do this is relatively simple, just take a look at the snippet of code below:</p>
+<ol class="arabic simple">
+<li><p>First I will create a dictionary containing information about various european countries.</p></li>
+<li><p>Secondly, I will convert this into a pandas DataFrame.</p></li>
+</ol>
+<p><strong>Take a look at the lines of code below and ensure you understand how it is constructed</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating my dictionary</span>
+<span class="n">euroData</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;United Kingdom&#39;</span><span class="p">,</span> <span class="s1">&#39;Italy&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;Sweden&#39;</span><span class="p">,</span> <span class="s1">&#39;Finland&#39;</span><span class="p">,</span> <span class="s1">&#39;Malta&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;Capital City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Rome&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">,</span> <span class="s1">&#39;Stockholm&#39;</span><span class="p">,</span> <span class="s1">&#39;Helsinki&#39;</span><span class="p">,</span> <span class="s1">&#39;Valletta&#39;</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;Population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">67330000</span><span class="p">,</span> <span class="mi">59110000</span><span class="p">,</span> <span class="mi">67750000</span><span class="p">,</span> <span class="mi">10420000</span><span class="p">,</span> <span class="mi">5541000</span><span class="p">,</span> <span class="mi">518536</span><span class="p">,</span> <span class="mi">83200000</span><span class="p">],</span>
+        <span class="s1">&#39;Life Expectancy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">80.90</span><span class="p">,</span> <span class="mf">82.34</span><span class="p">,</span> <span class="mf">82.18</span><span class="p">,</span> <span class="mf">82.41</span><span class="p">,</span> <span class="mf">82.13</span><span class="p">,</span> <span class="mf">82.65</span><span class="p">,</span> <span class="mf">80.94</span><span class="p">]}</span>
+
+<span class="c1"># Converting my dictionary into a pandas DataFrame</span>
+<span class="n">euroData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">euroData</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">euroData</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Capital City</th>
+      <th>Population</th>
+      <th>Life Expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>United Kingdom</td>
+      <td>London</td>
+      <td>67330000</td>
+      <td>80.90</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Italy</td>
+      <td>Rome</td>
+      <td>59110000</td>
+      <td>82.34</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>France</td>
+      <td>Paris</td>
+      <td>67750000</td>
+      <td>82.18</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Sweden</td>
+      <td>Stockholm</td>
+      <td>10420000</td>
+      <td>82.41</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Finland</td>
+      <td>Helsinki</td>
+      <td>5541000</td>
+      <td>82.13</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Malta</td>
+      <td>Valletta</td>
+      <td>518536</td>
+      <td>82.65</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Germany</td>
+      <td>Berlin</td>
+      <td>83200000</td>
+      <td>80.94</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="what-can-we-do-with-a-dataframe">
+<h2>What can we do with a DataFrame?<a class="headerlink" href="#what-can-we-do-with-a-dataframe" title="Permalink to this heading">#</a></h2>
+<div class="section" id="importing-data">
+<h3>Importing Data<a class="headerlink" href="#importing-data" title="Permalink to this heading">#</a></h3>
+<p>Importing data using pandas is essentially the same as importing data using numpy:</p>
+<ul class="simple">
+<li><p>First, we will import pandas into the script in the same way we did for numpy.</p></li>
+<li><p>Next, use we use “read_csv” to import the data into a DataFrame.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;PeopleData.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="getting-to-know-our-dataframe">
+<h3>Getting to know our DataFrame<a class="headerlink" href="#getting-to-know-our-dataframe" title="Permalink to this heading">#</a></h3>
+<p>In order to get a feel for the data that we are working with, there are a few pandas commands we can use. We can look at our enitre DataFrame or just the top/bottom 5 rows of the DataFrame using appropriate commands.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is how we look at the entire DataFrame</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Joan</td>
+      <td>54</td>
+      <td>Blue</td>
+      <td>1.54</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Davide</td>
+      <td>36</td>
+      <td>Brown</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liam</td>
+      <td>29</td>
+      <td>Hazel</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Emily</td>
+      <td>28</td>
+      <td>Green</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Carlos</td>
+      <td>15</td>
+      <td>Green</td>
+      <td>1.77</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Katie</td>
+      <td>12</td>
+      <td>Blue</td>
+      <td>1.73</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Ross</td>
+      <td>26</td>
+      <td>Blue</td>
+      <td>1.79</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Zack</td>
+      <td>35</td>
+      <td>Hazel</td>
+      <td>1.55</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Daisy</td>
+      <td>78</td>
+      <td>Brown</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Kim</td>
+      <td>7</td>
+      <td>Blue</td>
+      <td>1.10</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Schmonathan</td>
+      <td>68</td>
+      <td>Brown</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Jamantha</td>
+      <td>57</td>
+      <td>Green</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Carlos</td>
+      <td>20</td>
+      <td>Amber</td>
+      <td>1.91</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is how we take a look at the top 5 rows of the DataFrame.</span>
+<span class="n">Data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Joan</td>
+      <td>54</td>
+      <td>Blue</td>
+      <td>1.54</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Davide</td>
+      <td>36</td>
+      <td>Brown</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liam</td>
+      <td>29</td>
+      <td>Hazel</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Emily</td>
+      <td>28</td>
+      <td>Green</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Carlos</td>
+      <td>15</td>
+      <td>Green</td>
+      <td>1.77</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is how we take a look at only select columns from the top 5 rows of the DataFrame.</span>
+<span class="n">Data</span><span class="p">[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Joan</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Davide</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liam</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Emily</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Carlos</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is how we take a look at the bottom 5 rows of the DataFrame.</span>
+<span class="n">Data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8</td>
+      <td>Daisy</td>
+      <td>78</td>
+      <td>Brown</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Kim</td>
+      <td>7</td>
+      <td>Blue</td>
+      <td>1.10</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Schmonathan</td>
+      <td>68</td>
+      <td>Brown</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Jamantha</td>
+      <td>57</td>
+      <td>Green</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Carlos</td>
+      <td>20</td>
+      <td>Amber</td>
+      <td>1.91</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is how we take a look at only select columns from the bottom 5 rows of the DataFrame.</span>
+<span class="n">Data</span><span class="p">[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8</td>
+      <td>Daisy</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Kim</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Schmonathan</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Jamantha</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Carlos</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We are also able to gauge properties of the DataFrame such as what the each column represents, the types of data that it contains, the shape of the DataFrame and information about the indexing:</p>
+<ol class="arabic simple">
+<li><p>An example of how to find out what information is contained in each column:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Name&#39;, &#39;Age&#39;, &#39;Eye Colour&#39;, &#39;Height (m)&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>An example of how to find out what type of data is stored in the DataFrame:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name           object
+Age             int64
+Eye Colour     object
+Height (m)    float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>An example of how to find out what the shape of the DataFrame is</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(13, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>An example of how to find out the indexing of the DataFrame?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=13, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>To look at specific entries in a DataFrame we can use the “.loc” and “.iloc” functions.</p></li>
+</ol>
+<p>When using <em>loc</em> we are specifying which entry in the DataFrame we want using the index <em>labels</em>, whereas <em>iloc</em> uses the index <em>positions</em>. If our index labels are just our index positions, there will be no difference when using loc or iloc bar the fact that loc gives an inclusive range of results whereas iloc gives an exlusive range of results.</p>
+<p>Make sure this is clear to you by reviewing the difference in the outputs from the snippets of code below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using loc</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># If we had added an alternative index to the data frame that did not begin at zero</span>
+<span class="c1"># e.g. (101, 102, 103, ...) we would use these values when using loc.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name          Joan
+Age             54
+Eye Colour    Blue
+Height (m)    1.54
+Name: 0, dtype: object 
+ 
+
+   Name  Age Eye Colour  Height (m)
+0  Joan   54       Blue        1.54 
+ 
+
+     Name  Age Eye Colour  Height (m)
+0    Joan   54       Blue        1.54
+1  Davide   36      Brown        1.85
+2    Liam   29      Hazel        1.74
+3   Emily   28      Green        1.64 
+ 
+
+Blue
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using iloc</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># If we had added an alternative index to the data frame that did not begin at zero</span>
+<span class="c1"># e.g. (101, 102, 103, ...) we would still use the index location (e.g. 0, 1, 2).</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name          Joan
+Age             54
+Eye Colour    Blue
+Height (m)    1.54
+Name: 0, dtype: object 
+ 
+
+Empty DataFrame
+Columns: [Name, Age, Eye Colour, Height (m)]
+Index: [] 
+ 
+
+     Name  Age Eye Colour  Height (m)
+0    Joan   54       Blue        1.54
+1  Davide   36      Brown        1.85
+2    Liam   29      Hazel        1.74 
+ 
+
+Blue
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-data">
+<h3>Filtering Data<a class="headerlink" href="#filtering-data" title="Permalink to this heading">#</a></h3>
+<p>It is often the case when working with large datasets that we are only actually interested in a subset of the data. For example, using the “Data” DataFrame above I may only want to see the heights of the participants in this particular study. To this I can simply filter this information from the DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Heights</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Heights</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     1.54
+1     1.85
+2     1.74
+3     1.64
+4     1.77
+5     1.73
+6     1.79
+7     1.55
+8     1.50
+9     1.10
+10    1.68
+11    1.43
+12    1.91
+Name: Height (m), dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above I have created a new DataFrame containing just the heights that I may then use in my analysis moving forward. This saves me having to extracting the information from the larger DataFrame everytime that information is required. Either method is fine.</p>
+<p>We can see that when the “Heights” DataFrame has been printed out that the index is also shown. If we would like to extract a particular value from the DataFrame we can do so using the index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectedHeight</span> <span class="o">=</span> <span class="n">Heights</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selectedHeight</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.79
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above “selectedHeight” was extracted from the DataFrame “Heights” in the same way that we would extract information from a numpy array or list. If we wanted to select this Height from the original larger DataFrame “Data”, we would simply use two sets of square brackets:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectedHeight</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selectedHeight</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.79
+</pre></div>
+</div>
+</div>
+</div>
+<p>In some instances it may be useful to know all of the unique values in your DataFrame. For example, perhaps from my sample of data I would like to know all of the unique eye colours of the people that were sampled:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">UniqueEyeColours</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Eye Colour&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">UniqueEyeColours</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Blue&#39; &#39;Brown&#39; &#39;Hazel&#39; &#39;Green&#39; &#39;Amber&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or perhaps I just want to the information relating to one of the particpants in my survey. Look carefully at the structure of the line of code below used to extract the information associated with Carlos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CarlosInfo</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carlos&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">CarlosInfo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age Eye Colour  Height (m)
+4   Carlos   15      Green        1.77
+12  Carlos   20      Amber        1.91
+</pre></div>
+</div>
+</div>
+</div>
+<p>As there are two people named Carlos in my data I have been presented with two rows of data. If I want to filter the data to be even more specific I simply add a second condition in the filtering command.</p>
+<p>I am specifically interested in the data associated with the Carlos with amber eyes. I will add a second critereon to be met in the filtering using “&amp;”. Note that each condition is enclosed in a pair of rounded brackets. Look at the code below closely:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CarlosInfo</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[(</span><span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carlos&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Eye Colour&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Amber&#39;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">CarlosInfo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age Eye Colour  Height (m)
+12  Carlos   20      Amber        1.91
+</pre></div>
+</div>
+</div>
+</div>
+<p>If I want to get data for people called Carlos or Katie, I can simply modify the code above by adding an “or” statement using “|”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NewData</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[(</span><span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carlos&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Katie&#39;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">NewData</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age Eye Colour  Height (m)
+4   Carlos   15      Green        1.77
+5    Katie   12       Blue        1.73
+12  Carlos   20      Amber        1.91
+</pre></div>
+</div>
+</div>
+</div>
+<p>If I want to filter my data to only show those who are taller than 1.8m I can do so by applying a condition:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TallPeople</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[(</span><span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1.8</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TallPeople</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age Eye Colour  Height (m)
+1   Davide   36      Brown        1.85
+12  Carlos   20      Amber        1.91
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="replacing-data">
+<h3>Replacing Data<a class="headerlink" href="#replacing-data" title="Permalink to this heading">#</a></h3>
+<p>It might be the case that there is an incorrect data entry in a DataFrame that needs correcting, or perhaps a series of terms all need replacing. We can easily replace terms in a DataFrame using “.replace()”. For example, lets say that the age recorded for Davide was incorrect and needed replacing, we can do so easily. Here I am going to replace the number 36 with 38 in the age column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">36</span><span class="p">],</span><span class="mi">38</span><span class="p">)</span>
+<span class="n">Data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Joan</td>
+      <td>54</td>
+      <td>Blue</td>
+      <td>1.54</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Davide</td>
+      <td>38</td>
+      <td>Brown</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liam</td>
+      <td>29</td>
+      <td>Hazel</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Emily</td>
+      <td>28</td>
+      <td>Green</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Carlos</td>
+      <td>15</td>
+      <td>Green</td>
+      <td>1.77</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Replacing all values equal to something thing can be useful, but may also result in data being changed that should not be changed. For example, when correcting the age of Davide above, the method would actually have re-aged anybody who is 36 to 38.</p>
+<p>If we want to change an individual value we can also do this fairly easily too. Take a look at the example below where I am going to change the eye colour associated with Liam from Hazel to Amber:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Amber&quot;</span>
+<span class="n">Data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Eye Colour</th>
+      <th>Height (m)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Joan</td>
+      <td>54</td>
+      <td>Blue</td>
+      <td>1.54</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Davide</td>
+      <td>38</td>
+      <td>Brown</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Liam</td>
+      <td>29</td>
+      <td>Amber</td>
+      <td>1.74</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Emily</td>
+      <td>28</td>
+      <td>Green</td>
+      <td>1.64</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Carlos</td>
+      <td>15</td>
+      <td>Green</td>
+      <td>1.77</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="looping">
+<h3>Looping<a class="headerlink" href="#looping" title="Permalink to this heading">#</a></h3>
+<p>In addition to filtering data from a DataFrame, it is also possible to perform calculations/analysis by looping through it (e.g. using for and while loops).</p>
+<p>To show an example of how we can loop through a DataFrame we are going to use a new set of data called “all_matches”. This dataset contains the results of all international football matches from 1872 to 2023. We are going to loop through this data to determine which country is the most successful of all time:</p>
+<ol class="arabic simple">
+<li><p>The first thing we should do is take a look at how the data in the DataFrame is formatted. To do this, we will use “.head()” to view the first five rows of the DataFrame.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">Football</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;all_matches.csv&quot;</span><span class="p">)</span>
+
+<span class="n">Football</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>home_team</th>
+      <th>away_team</th>
+      <th>home_score</th>
+      <th>away_score</th>
+      <th>tournament</th>
+      <th>country</th>
+      <th>neutral</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1872-11-30</td>
+      <td>Scotland</td>
+      <td>England</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Friendly</td>
+      <td>Scotland</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1873-03-08</td>
+      <td>England</td>
+      <td>Scotland</td>
+      <td>4</td>
+      <td>2</td>
+      <td>Friendly</td>
+      <td>England</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1874-03-07</td>
+      <td>Scotland</td>
+      <td>England</td>
+      <td>2</td>
+      <td>1</td>
+      <td>Friendly</td>
+      <td>Scotland</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1875-03-06</td>
+      <td>England</td>
+      <td>Scotland</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Friendly</td>
+      <td>England</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>1876-03-04</td>
+      <td>Scotland</td>
+      <td>England</td>
+      <td>3</td>
+      <td>0</td>
+      <td>Friendly</td>
+      <td>Scotland</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Next, in order to determine which country is the most successful we need to know how many different countries are actually in this dataset. When doing this I will assume that every team has played at home and away. To do this, we can use “.unique()” as above:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="n">Football</span><span class="p">[</span><span class="s2">&quot;home_team&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Scotland&#39; &#39;England&#39; &#39;Wales&#39; &#39;Ireland&#39; &#39;Uruguay&#39; &#39;Austria&#39; &#39;Hungary&#39;
+ &#39;Argentina&#39; &#39;Belgium&#39; &#39;France&#39; &#39;Netherlands&#39; &#39;British Guiana&#39; &#39;Bohemia&#39;
+ &#39;Switzerland&#39; &#39;Germany&#39; &#39;Sweden&#39; &#39;Denmark&#39; &#39;Italy&#39; &#39;South Africa&#39; &#39;Chile&#39;
+ &#39;Norway&#39; &#39;Finland&#39; &#39;Luxembourg&#39; &#39;Russia&#39; &#39;Philippines&#39; &#39;China&#39; &#39;Suriname&#39;
+ &#39;Brazil&#39; &#39;Japan&#39; &#39;Paraguay&#39; &#39;Spain&#39; &#39;Czechoslovakia&#39; &#39;Egypt&#39;
+ &#39;Northern Ireland&#39; &#39;Estonia&#39; &#39;Costa Rica&#39; &#39;Guatemala&#39; &#39;Poland&#39;
+ &#39;Yugoslavia&#39; &#39;New Zealand&#39; &#39;Romania&#39; &#39;Latvia&#39; &#39;Portugal&#39; &#39;Australia&#39;
+ &#39;Lithuania&#39; &#39;Trinidad and Tobago&#39; &#39;Turkey&#39; &#39;Mexico&#39; &#39;Aruba&#39;
+ &#39;United States&#39; &#39;Soviet Union&#39; &#39;Haiti&#39; &#39;Bulgaria&#39; &#39;Canada&#39; &#39;Jamaica&#39;
+ &#39;Kenya&#39; &#39;Azerbaijan&#39; &#39;Georgia&#39; &#39;Peru&#39; &#39;Honduras&#39; &#39;British Honduras&#39;
+ &#39;Dutch East Indies&#39; &#39;El Salvador&#39; &#39;Uganda&#39; &#39;Barbados&#39; &#39;Greece&#39; &#39;Cuba&#39;
+ &#39;Curaçao&#39; &#39;Faroe Islands&#39; &#39;Mauritius&#39; &#39;Dominica&#39; &#39;Reunion&#39;
+ &#39;New Caledonia&#39; &#39;Palestine&#39; &#39;Grenada&#39; &#39;Guadeloupe&#39; &#39;French Guiana&#39;
+ &#39;Martinique&#39; &#39;St Vincent &amp; Grenadines&#39; &#39;Panama&#39; &#39;Colombia&#39; &#39;Venezuela&#39;
+ &#39;Bolivia&#39; &#39;Saint Kitts and Nevis&#39; &#39;Ecuador&#39; &#39;Slovakia&#39;
+ &#39;Bohemia and Moravia&#39; &#39;Croatia&#39; &#39;Iran&#39; &#39;Afghanistan&#39; &#39;Korea&#39; &#39;Lebanon&#39;
+ &#39;Syria&#39; &#39;Nicaragua&#39; &#39;Iceland&#39; &#39;Albania&#39; &#39;Southern Rhodesia&#39; &#39;Hong Kong&#39;
+ &#39;Tanganyika&#39; &#39;French Somaliland&#39; &#39;Northern Rhodesia&#39; &#39;Madagascar&#39;
+ &#39;South Vietnam&#39; &#39;Macao&#39; &#39;Singapore&#39; &#39;India&#39; &#39;South Korea&#39; &#39;Thailand&#39;
+ &#39;Belgian Congo&#39; &#39;Ethiopia&#39; &#39;Puerto Rico&#39; &#39;Israel&#39; &#39;Sierra Leone&#39;
+ &#39;Zanzibar&#39; &#39;Antigua and Barbuda&#39; &#39;Saint Kitts&#39; &#39;Netherlands Antilles&#39;
+ &#39;Gold Coast&#39; &#39;West Germany&#39; &#39;Indonesia&#39; &#39;East Germany&#39; &#39;Fiji&#39; &#39;Nigeria&#39;
+ &#39;Montserrat&#39; &#39;Ceylon&#39; &#39;Pakistan&#39; &#39;Tahiti&#39; &#39;Saar&#39; &#39;Gambia&#39;
+ &#39;Portuguese Guinea&#39; &#39;Jordan&#39; &#39;Libya&#39; &#39;New Hebrides&#39; &#39;Burma&#39; &#39;Taiwan&#39;
+ &#39;French Togoland&#39; &#39;Ivory Coast&#39; &#39;French Congo&#39; &#39;Cameroon&#39; &#39;Malaya&#39;
+ &#39;Cambodia&#39; &#39;Sudan&#39; &#39;North Korea&#39; &#39;Ubangi-Shari&#39; &#39;Malta&#39; &#39;Tunisia&#39; &#39;Iraq&#39;
+ &#39;Morocco&#39; &#39;Saudi Arabia&#39; &#39;Ghana&#39; &#39;Nyasaland&#39; &#39;Algeria&#39;
+ &#39;United Arab Republic&#39; &#39;Dahomey&#39; &#39;North Vietnam&#39; &#39;Togo&#39; &#39;Congo&#39;
+ &#39;Mali Federation&#39; &#39;Upper Volta&#39; &#39;Cyprus&#39; &#39;Saint Lucia&#39; &#39;Kuwait&#39; &#39;Senegal&#39;
+ &#39;Liberia&#39; &#39;Central African Republic&#39; &#39;Chad&#39; &#39;Guinea&#39; &#39;Mali&#39; &#39;Gabon&#39;
+ &#39;Northern Cyprus&#39; &#39;Congo-Leopoldville&#39; &#39;Solomon Islands&#39; &#39;Malaysia&#39;
+ &#39;Niger&#39; &#39;DR Congo&#39; &#39;Bermuda&#39; &#39;Tanzania&#39; &#39;Zambia&#39; &#39;Bahrain&#39; &#39;Malawi&#39;
+ &#39;Papua New Guinea&#39; &#39;Dominican Republic&#39; &#39;Guyana&#39; &#39;Mauritania&#39; &#39;Rhodesia&#39;
+ &#39;Swaziland&#39; &#39;Laos&#39; &#39;Qatar&#39; &#39;Bonaire&#39; &#39;Khmer Republic&#39; &#39;Lesotho&#39; &#39;Bahamas&#39;
+ &#39;South Yemen&#39; &#39;Somalia&#39; &#39;Zaire&#39; &#39;United Arab Emirates&#39; &#39;Sri Lanka&#39;
+ &#39;Nepal&#39; &#39;Bangladesh&#39; &#39;Burundi&#39; &#39;Guinea-Bissau&#39; &#39;Mozambique&#39; &#39;Guam&#39;
+ &#39;Angola&#39; &#39;Oman&#39; &#39;São Tomé and Príncipe&#39; &#39;Botswana&#39; &#39;Benin&#39; &#39;Cape Verde&#39;
+ &#39;Seychelles&#39; &#39;Rwanda&#39; &#39;Comoros&#39; &#39;Tuvalu&#39; &#39;Wallis and Futuna&#39; &#39;Tonga&#39;
+ &#39;Kiribati&#39; &#39;Brunei&#39; &#39;Zimbabwe&#39; &#39;Liechtenstein&#39; &#39;Vanuatu&#39; &#39;Greenland&#39;
+ &#39;Western Samoa&#39; &#39;Eastern Samoa&#39; &#39;Belize&#39; &#39;Djibouti&#39; &#39;Maldives&#39;
+ &#39;Burkina Faso&#39; &#39;North Yemen&#39; &#39;Anguilla&#39; &#39;Equatorial Guinea&#39;
+ &#39;Cayman Islands&#39; &#39;Sint Maarten&#39; &#39;Namibia&#39; &#39;Saint Martin&#39;
+ &#39;British Virgin Islands&#39; &#39;San Marino&#39; &#39;Slovenia&#39; &#39;Moldova&#39;
+ &#39;Comm of Indep States&#39; &#39;Ukraine&#39; &#39;Kazakhstan&#39; &#39;Tajikistan&#39; &#39;Uzbekistan&#39;
+ &#39;Eritrea&#39; &#39;Turkmenistan&#39; &#39;Kyrgyzstan&#39; &#39;Armenia&#39; &#39;Belarus&#39; &#39;Vietnam&#39;
+ &#39;Yemen&#39; &#39;Myanmar&#39; &#39;Macedonia&#39; &#39;Czechia&#39; &#39;Gibraltar&#39; &#39;Cook Islands&#39;
+ &#39;Bosnia and Herzegovina&#39; &#39;Andorra&#39; &#39;US Virgin Islands&#39; &#39;Palau&#39;
+ &#39;Northern Mariana Islands&#39; &#39;Samoa&#39; &#39;Turks and Caicos Islands&#39;
+ &#39;FS Micronesia&#39; &#39;Mayotte&#39; &#39;Bhutan&#39; &#39;Kosovo&#39; &#39;Serbia and Montenegro&#39;
+ &#39;Mongolia&#39; &#39;Serbia&#39; &#39;Montenegro&#39; &#39;Kurdistan&#39; &#39;South Sudan&#39;
+ &#39;Saint Barthelemy&#39; &#39;East Timor&#39; &#39;Eswatini&#39; &#39;North Macedonia&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Now we have a list off all the countries we need to extract data for, we can loop through the entire data set and determine how many matches each country has won. This is made a little more complicated as looking at the data we need to consider both the home and away games:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we create two lists - one for the country name and one for their percentage of wins.</span>
+<span class="n">teamNames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">percentageWins</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+    
+    <span class="c1"># First we will filter only the data associated with our current country from the entire dataset.</span>
+    <span class="c1"># This first line of code narrows down the data to only the matches where they were either playing home or away.</span>
+    <span class="n">currentCountry</span> <span class="o">=</span> <span class="n">Football</span><span class="p">[(</span><span class="n">Football</span><span class="p">[</span><span class="s1">&#39;home_team&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">country</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">Football</span><span class="p">[</span><span class="s1">&#39;away_team&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">country</span><span class="p">)]</span>
+    
+    <span class="c1"># This line of code simply filters from the currentCountry DataFrame to determine how many home wins they had.</span>
+    <span class="n">HomeWins</span> <span class="o">=</span> <span class="n">currentCountry</span><span class="p">[(</span><span class="n">currentCountry</span><span class="p">[</span><span class="s1">&#39;home_team&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">currentCountry</span><span class="p">[</span><span class="s1">&#39;home_score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">currentCountry</span><span class="p">[</span><span class="s1">&#39;away_score&#39;</span><span class="p">])]</span>
+    <span class="c1"># This line of code simply filters from the currentCountry DataFrame to determine how many away wins they had.</span>
+    <span class="n">AwayWins</span> <span class="o">=</span> <span class="n">currentCountry</span><span class="p">[(</span><span class="n">currentCountry</span><span class="p">[</span><span class="s1">&#39;away_team&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">currentCountry</span><span class="p">[</span><span class="s1">&#39;away_score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">currentCountry</span><span class="p">[</span><span class="s1">&#39;home_score&#39;</span><span class="p">])]</span>
+    
+    <span class="c1"># Now we calculate the number of wins as a percentage and append our data to our two lists.</span>
+    <span class="n">teamNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+    <span class="n">percentageWins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">((</span><span class="n">HomeWins</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">AwayWins</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">currentCountry</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span> <span class="p">)</span> 
+    <span class="c1"># In the line above the number of home wins, away wins and games played is determined using .shape[0]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>I will now create a new DataFrame containing the countries and their win percentage from the lists I made in the last step:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building my new DataFrame</span>
+<span class="n">winData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">teamNames</span><span class="p">,</span> <span class="s1">&#39;Percentage Wins&#39;</span><span class="p">:</span> <span class="n">percentageWins</span><span class="p">})</span>
+
+<span class="c1"># Printing the top 5 rows of my DataFrame</span>
+<span class="n">winData</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Name</th>
+      <th>Percentage Wins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Scotland</td>
+      <td>47.738095</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>England</td>
+      <td>58.451957</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Wales</td>
+      <td>31.926864</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Ireland</td>
+      <td>35.104895</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Uruguay</td>
+      <td>44.308943</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>I can sort our new DataFrame by the column “Percentage of Wins” to determine the country that is the most successful:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sorting the values by most sucessful</span>
+<span class="n">sortedWinData</span> <span class="o">=</span> <span class="n">winData</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Percentage Wins&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sortedWinData</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Name</th>
+      <th>Percentage Wins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>143</td>
+      <td>Ubangi-Shari</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>French Congo</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Korea</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <td>157</td>
+      <td>Mali Federation</td>
+      <td>75.000000</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>Saint Kitts</td>
+      <td>72.727273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="plotting-data-from-a-dataframe">
+<h3>Plotting Data from a DataFrame<a class="headerlink" href="#plotting-data-from-a-dataframe" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple" start="6">
+<li><p>If I want to visualise this data in a better way that a simple table, we can also extract the data from a DataFrame for plotting. The process is exactly the same as if we were plotting data from a numpy array. For example the bar chart below shows the 20 most successful countries at football:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">sortedWinData</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">],</span> <span class="n">sortedWinData</span><span class="p">[</span><span class="s1">&#39;Percentage Wins&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Percentage Wins&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Most Successful Countries @ Football&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/658e83d21a4b8ac950b41db7d8d41fa98c383ba0377b1a2c2d2e075c192c1c70.png" src="_images/658e83d21a4b8ac950b41db7d8d41fa98c383ba0377b1a2c2d2e075c192c1c70.png" />
+</div>
+</div>
+<p>There we have it! The most successful countries of all time at football are Ubangi-Shari (a former French colony in Africa), French Congo (former French colony) and Korea (before the seperation of states). Let’s take a look at their record by filtering our original Football DataFrame to show only these countries matches:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TopTeams</span> <span class="o">=</span> <span class="n">Football</span><span class="p">[(</span><span class="n">Football</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Ubangi-Shari&quot;</span><span class="p">)</span> <span class="o">|</span> 
+                   <span class="p">(</span><span class="n">Football</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;French Congo&quot;</span><span class="p">)</span> <span class="o">|</span> 
+                   <span class="p">(</span><span class="n">Football</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Korea&quot;</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">TopTeams</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>home_team</th>
+      <th>away_team</th>
+      <th>home_score</th>
+      <th>away_score</th>
+      <th>tournament</th>
+      <th>country</th>
+      <th>neutral</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2812</td>
+      <td>1942-08-16</td>
+      <td>Korea</td>
+      <td>Japan</td>
+      <td>5</td>
+      <td>0</td>
+      <td>Friendly</td>
+      <td>Korea</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>4322</td>
+      <td>1954-12-31</td>
+      <td>French Congo</td>
+      <td>Cameroon</td>
+      <td>5</td>
+      <td>1</td>
+      <td>Friendly</td>
+      <td>French Congo</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>4715</td>
+      <td>1956-12-31</td>
+      <td>Ubangi-Shari</td>
+      <td>Cameroon</td>
+      <td>5</td>
+      <td>1</td>
+      <td>Friendly</td>
+      <td>Ubangi-Shari</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Each team only played (and won) a single match before, but I am inclined to give Korea the crown as they had the largest goal difference… So there we have it - <strong>Korea is the greatest football nation on the planet!</strong></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="useful-pandas-dataframe-functions">
+<h2>Useful Pandas DataFrame Functions<a class="headerlink" href="#useful-pandas-dataframe-functions" title="Permalink to this heading">#</a></h2>
+<p><strong>There are lots of very useful pandas specfic functions - those related to DataFrames can be found <a class="reference external" href="https://pandas.pydata.org/docs/reference/frame.html">here</a>.</strong></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="activities">
+<h2>Activities<a class="headerlink" href="#activities" title="Permalink to this heading">#</a></h2>
+<div class="section" id="brazil-vs-portugal">
+<h3>1. Brazil vs Portugal<a class="headerlink" href="#brazil-vs-portugal" title="Permalink to this heading">#</a></h3>
+<p>Using “all_matches.csv” find out the following:</p>
+<ul class="simple">
+<li><p>How many football games have been played between Brazil and Portugal.</p></li>
+<li><p>Who has won the most when playing each other.</p></li>
+<li><p>Who has won the most games overall (i.e. not just against each other).</p></li>
+</ul>
+</div>
+<div class="section" id="learning-earning">
+<h3>2. Learning = Earning?<a class="headerlink" href="#learning-earning" title="Permalink to this heading">#</a></h3>
+<p>Using the “BankChurners” data:</p>
+<ul class="simple">
+<li><p>Use a for loop to determine the mean credit limit for each education level in the data.</p></li>
+<li><p>Plot the mean credit limit for each education level in the data.</p></li>
+<li><p>Plot the mean utilisation ration for each education level in the data.</p></li>
+</ul>
+<p><em>You will want to use .mean() for this activity. If you use the .mean() method it will return mean for all the columns, you will need to select the column you are interested in.</em></p>
+</div>
+<div class="section" id="the-price-of-greatness-is-responsibility">
+<h3>3. “The price of greatness is responsibility.”<a class="headerlink" href="#the-price-of-greatness-is-responsibility" title="Permalink to this heading">#</a></h3>
+<p>Using the “politics_apr2020” data:</p>
+<ul class="simple">
+<li><p>Print the countries with the youngest leaders.</p></li>
+<li><p>Print the countries with the oldest leaders.</p></li>
+<li><p>Find the longest serving leader.</p></li>
+<li><p>Plot the leaders age against tenure.</p></li>
+</ul>
+</div>
+<div class="section" id="covid-19">
+<h3>4. Covid-19<a class="headerlink" href="#covid-19" title="Permalink to this heading">#</a></h3>
+<p>Using the “covid19_stats.csv” data:</p>
+<ul class="simple">
+<li><p>Calculate the total number of excess deaths attributed to Covid-19 for each country in 2021.</p></li>
+<li><p>Show the top and bottom 5 countries by excess deaths.</p></li>
+<li><p>Plot the total number of deaths attributed to covid.</p></li>
+</ul>
+</div>
+<div class="section" id="global-statistics">
+<h3>5. Global Statistics<a class="headerlink" href="#global-statistics" title="Permalink to this heading">#</a></h3>
+<p>Using the “global_stats.csv” data:</p>
+<ul class="simple">
+<li><p>Determine how many different countries can be found within each continental base in this dataset.</p></li>
+<li><p>Print out the top/bottom 5 populated countries within each continental base.</p></li>
+<li><p>Rank and plot the Human development Index (HDI) for countries with more than 50 million internet users.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="S2_Wk5_Weighted_and_NonLinear_Regression.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Weighted and Non-Linear Regression Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Useful_Functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Useful Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-pandas">Why use Pandas?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-scratch">Creating A DataFrame from Scratch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do-with-a-dataframe">What can we do with a DataFrame?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-to-know-our-dataframe">Getting to know our DataFrame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-data">Filtering Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replacing-data">Replacing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looping">Looping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-data-from-a-dataframe">Plotting Data from a DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-pandas-dataframe-functions">Useful Pandas DataFrame Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activities">Activities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brazil-vs-portugal">1. Brazil vs Portugal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-earning">2. Learning = Earning?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-price-of-greatness-is-responsibility">3. “The price of greatness is responsibility.”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covid-19">4. Covid-19</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-statistics">5. Global Statistics</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Ross Mathieson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
