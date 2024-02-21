@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Useful Functions &#8212; PHYS11006 - Computing Skills Workshop</title>
+    <title>Python Assessment &#8212; PHYS11006 - Computing Skills Workshop</title>
   
   
   
@@ -60,12 +60,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_Functions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S2_Wk8_PythonAssessment';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Pandas DataFrames" href="S2_Wk6_Pandas.html" />
+    <link rel="next" title="Simularing AC Circuits" href="S2_Wk9_LCR_Circuits.html" />
+    <link rel="prev" title="Using Lab View" href="S2_Wk7_Labview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,9 +195,21 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="S2_Wk6_Pandas.html">Pandas DataFrames</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk7_Labview.html">Using Lab View</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 8</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Useful Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 9</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk9_LCR_Circuits.html">Simularing AC Circuits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Useful_Functions.html">Useful Functions</a></li>
 </ul>
 
     </div>
@@ -270,7 +281,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUseful_Functions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FS2_Wk8_PythonAssessment.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +311,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Useful_Functions.ipynb" target="_blank"
+      <li><a href="_sources/S2_Wk8_PythonAssessment.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,9 +380,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -382,22 +391,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Useful Functions</h1>
+    <h1>Python Assessment</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-python-functions">Built in Python Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-trigonometric-functions">Basic Trigonometric Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding">Rounding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-maths-and-statistics">Basic Maths and Statistics</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -407,100 +405,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="useful-functions">
-<h1>Useful Functions<a class="headerlink" href="#useful-functions" title="Permalink to this heading">#</a></h1>
-<p>Here is an (incomplete) list of functions that you may find useful in your computer analysis. Clicking the links will take you to the documentation for each function which will explain how to use it. If you wish to use a numpy function you must first import numpy as np.</p>
-<p>A complete list of the <a class="reference external" href="https://www.w3schools.com/python/python_ref_functions.asp">built in python functions</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">numpy functions</a> are linked.</p>
-<div class="section" id="built-in-python-functions">
-<h2>Built in Python Functions<a class="headerlink" href="#built-in-python-functions" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_func_min.asp">min()</a> - returns the smallest value in a list/array.</p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_func_max.asp">max()</a> - returns the largest value in a list/array.</p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_func_len.asp#:~:text=The%20len()%20function%20returns,of%20characters%20in%20the%20string.">len()</a> - returns the length (number of value) in a list/array.</p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_func_pow.asp">pow()</a> - returns the value of one number to the power of a second.</p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_func_abs.asp">abs()</a> - returns the absolute value of a number.</p></li>
-<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_func_range.asp">range()</a> - creates a sequence of numbers (start, stop and step can be defined), by default the sequence will start from 0 and end at N-1 in steps of 1.</p></li>
-</ul>
-</div>
-<div class="section" id="basic-trigonometric-functions">
-<h2>Basic Trigonometric Functions<a class="headerlink" href="#basic-trigonometric-functions" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sin.html#numpy.sin">np.sin()</a> - calculates the sine of an angle theta, which itself must be provided in radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cos.html#numpy.cos">np.cos()</a>- calculates the cosine of an angle theta, which itself must be provided in radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tan.html#numpy.tan">np.tan()</a> - calculates the tan of an angle theta, which itself must be provided in radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arcsin.html#numpy.arcsin">np.arcsin()</a> - calculates the inverse sine of a value, giving the answer in radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arccos.html#numpy.arccos">np.arccos()</a>  - calculates the inverse cosine of a value, giving the answer in radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arctan.html#numpy.arctan">np.arctan()</a> - calculates the inverse tan of a value, giving the answer in radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.radians.html#numpy.radians">np.radians()</a> - converts an angle from degrees to radians.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.degrees.html#numpy.degrees">np.degrees()</a> - converts an angle from radians to degrees.</p></li>
-</ul>
-</div>
-<div class="section" id="rounding">
-<h2>Rounding<a class="headerlink" href="#rounding" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.round.html#numpy.round">np.round()</a> - rounds a value to the given number of decimals.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.around.html#numpy.around">np.around()</a> - rounds an array to a given number of decimals.</p></li>
-</ul>
-</div>
-<div class="section" id="basic-maths-and-statistics">
-<h2>Basic Maths and Statistics<a class="headerlink" href="#basic-maths-and-statistics" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">np.linspace()</a> - returns evenly spaced numbers over a specified interval.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.prod.html#numpy.prod">np.prod()</a> - returns the product of array elements over a given axis.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum">np.sum()</a> - returns the sum of array elements over a given axis.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.exp.html#numpy.exp">np.exp()</a> - calculates the exponenital of a value or each elements in an array.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log">np.log()</a> - calculates the natural log of a value or each element in an array.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.log10.html#numpy.log10">np.log10()</a> - calculates the base 10 logarithm for a value or each element in an array.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html#numpy.sqrt">np.sqrt()</a> - returns the non-negative square-root of an array, element-wise.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.cbrt.html#numpy.cbrt">np.cbrt()</a> - return the cube-root of an array, element-wise.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.square.html#numpy.square">np.square()</a> - return the element-wise square of the input.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.absolute.html#numpy.absolute">np.abs()</a> - calculates the absolute value element-wise.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html">np.mean()</a> - calculates and returns the mean of an array.</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html">np.std()</a> - computes the standard deviation of the values in an array.</p></li>
-</ul>
-<p><strong>Note: the arguement “ddof = 1” must be added when calculating the standard deviation of a sample. Without this the equation used to calculate the standard deviation is that for the population:</strong></p>
-<div class="math notranslate nohighlight">
-\[ \sigma_{N-1} = \sqrt{\frac{\sum{(x-\bar{x})^2}}{N}} \]</div>
-<p><strong>rather than:</strong></p>
-<div class="math notranslate nohighlight">
-\[ \sigma_{N-1} = \sqrt{\frac{\sum{(x-\bar{x})^2}}{N-1}} \]</div>
-<p><strong>which is the formula we need (note the N-1 in the denominator).</strong></p>
-<p>See the example below as to how to calculate the mean, standard deviation and standard error for a sample of measurements:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># First we load or enter our data into a numpy array.</span>
-<span class="n">Measurements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">43</span><span class="p">])</span>
-
-<span class="c1"># Next, we perform our calculations.</span>
-<span class="n">average</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Measurements</span><span class="p">)</span>
-<span class="n">standard_deviation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">Measurements</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">standard_error</span> <span class="o">=</span> <span class="n">standard_deviation</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Measurements</span><span class="p">)</span>
-
-<span class="c1"># Then we can print our results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The mean value of the measurements is: &quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The standard deviation of the measurements is: &quot;</span><span class="p">,</span> <span class="n">standard_deviation</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The mean standard error of the measurements is: &quot;</span><span class="p">,</span> <span class="n">standard_error</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Then we can report our final value appropriately:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The best estimate of our results is: [&quot;</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">average</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;+/-&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">standard_error</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;] Units.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean value of the measurements is:  47.6 
-
-The standard deviation of the measurements is:  5.853773711604051 
-
-The mean standard error of the measurements is:  0.5853773711604051 
-
-The best estimate of our results is: [ 47.6 +/- 0.6 ] Units.
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-assessment">
+<h1>Python Assessment<a class="headerlink" href="#python-assessment" title="Permalink to this heading">#</a></h1>
+<p>This week will be dedicated to performing a Python related skills task. In this activity you will use the Python skills you have developed throughout the year to perform a task that will involve extracting data from a Pandas DataFrame, performing a non-linear fit and producing a high quality plot.</p>
+<p>Further details for the assessment will be provided closer to the time. You will have this session to work on the skills task and will need to submit it for assessment by 10 am on Monday of week 9.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -535,13 +443,22 @@ The best estimate of our results is: [ 47.6 +/- 0.6 ] Units.
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S2_Wk6_Pandas.html"
+       href="S2_Wk7_Labview.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Pandas DataFrames</p>
+        <p class="prev-next-title">Using Lab View</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="S2_Wk9_LCR_Circuits.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simularing AC Circuits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -552,23 +469,6 @@ The best estimate of our results is: [ 47.6 +/- 0.6 ] Units.
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-python-functions">Built in Python Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-trigonometric-functions">Basic Trigonometric Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding">Rounding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-maths-and-statistics">Basic Maths and Statistics</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
