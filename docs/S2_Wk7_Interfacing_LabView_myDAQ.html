@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Lab View &#8212; PHYS11006 - Computing Skills Workshop</title>
+    <title>Interfacing with LabView and a myDAQ &#8212; PHYS11006 - Computing Skills Workshop</title>
   
   
   
@@ -60,11 +60,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'S2_Wk7_Labview';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S2_Wk7_Interfacing_LabView_myDAQ';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Python Assessment" href="S2_Wk8_PythonAssessment.html" />
-    <link rel="prev" title="Pandas DataFrames" href="S2_Wk6_Pandas.html" />
+    <link rel="prev" title="An Introduction to LabView" href="S2_Wk7_An_Introduction_to_LabView.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,7 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 7</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using Lab View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk7_An_Introduction_to_LabView.html">An Introduction to LabView</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Interfacing with LabView and a myDAQ</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 8</span></p>
 <ul class="nav bd-sidenav">
@@ -281,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FS2_Wk7_Labview.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FS2_Wk7_Interfacing_LabView_myDAQ.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/S2_Wk7_Labview.ipynb" target="_blank"
+      <li><a href="_sources/S2_Wk7_Interfacing_LabView_myDAQ.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -380,7 +383,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -391,11 +396,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Using Lab View</h1>
+    <h1>Interfacing with LabView and a myDAQ</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#builing-a-light-detector-circuit">Builing a Light Detector Circuit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mydaq-and-labview-walkthrough">myDAQ and LabView Walkthrough</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concluding-thoughts">Concluding Thoughts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-python">Back to Python…</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -405,10 +423,77 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="using-lab-view">
-<h1>Using Lab View<a class="headerlink" href="#using-lab-view" title="Permalink to this heading">#</a></h1>
-<p>This session will be dedicated to learning to use LabView for your lab course. Following this, there will be time at the end of the session to discuss anything Python related in preperation for the Python skills assessment after the Easter Break.</p>
-<p>Materials will be uploaded here closer to the time.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="interfacing-with-labview-and-a-mydaq">
+<h1>Interfacing with LabView and a myDAQ<a class="headerlink" href="#interfacing-with-labview-and-a-mydaq" title="Permalink to this heading">#</a></h1>
+<p>By Dr Ross Mathieson, Dr Mark Quinn, Dr Stephen Collins &amp; Amy Moores.</p>
+<p>Now that we have an understanding of how to interact with LabView, we are going introduce the myDAQ into our script. In this session, we are going to look at how to collect data using the myDAQ and exporting this data to a useful file type.</p>
+<div class="section" id="builing-a-light-detector-circuit">
+<h2>Builing a Light Detector Circuit<a class="headerlink" href="#builing-a-light-detector-circuit" title="Permalink to this heading">#</a></h2>
+<p>We are going to build a simple circuit which allows us to measure the intensity of a light source as a voltage using light-dependent resistor (the resistance of this element increases when exposed to light). You will be familiar with breadboards by this point for building circuits, now we are going to use a “myProtoBoard”. The myProtoBoard has an edge connector to connect to the myDAQ and a set of plugin connectors to allow connections to the circuit built on the breadboard. To build the circuit:</p>
+<ol class="arabic simple">
+<li><p>Connect the 5V output to the positive rail of the myProtoBoard.</p></li>
+<li><p>Connect the analogue-ground (AGND) to the negative rail of the myProtoBoard.</p></li>
+<li><p>Connect the analogue ground (AGND) to the analogue input channel 0<span class="math notranslate nohighlight">\(^-\)</span>.</p></li>
+<li><p>Connect the analogue input channel 0 minus (AI0-) to the breadboard.</p></li>
+<li><p>Connect the light dependent resistor to the AI0- connection in the breadboard and the negative rail.</p></li>
+<li><p>Connect the resistor to the same rail as the photosensitive-resistor and other AI0- connection and the positive rail.</p></li>
+<li><p>Plug the myDAQ into the PC using the supplied cable.</p></li>
+</ol>
+<p>The circuit you build should look like this:</p>
+<figure>
+    <img src="S2Wk7_Figures/myDAQ_build.jpg"
+         alt="An photograph of the simple circuit that you should build in order to carry out this investigation." width="500">
+</figure>
+</div>
+<div class="section" id="mydaq-and-labview-walkthrough">
+<h2>myDAQ and LabView Walkthrough<a class="headerlink" href="#mydaq-and-labview-walkthrough" title="Permalink to this heading">#</a></h2>
+<p>We will still be interfacing using LabView, this time however we will be using the software to control and take measurements from a simple electronic circuit.</p>
+<ol class="arabic simple">
+<li><p>In labView, find the DAQ assistant in the functions pallete (using search) and drag this into your block-diagram; a dialogue box should open. Select <em>aquire signals</em>, then <em>analogue input</em> and then <em>voltage</em>. A list of all the input channels for the myDAQ sghould appear: select the channel A0+ and press finish. Under the timing settings, set the DAQ assistant to measure one sample on demand.</p></li>
+<li><p>Next, ensure that the VI is collecting data from the myDAQ plugged into your computer. Right-click on the <em>device name</em> input on the DAQ Assistant (bottom-left purple triangle) and select <em>create control</em>. This should make a device name drop down appear on the front panel. You can then browse this drop down and select the myDAQ that is plugged into the computer.</p></li>
+</ol>
+<p>In the last set of activities you built a FOR loop which requires the user to know the exact number of times that the loop needs to be executed prior to running the loop. Depending on the application, this number may not always be known and instead a WHILE loop may be more appropriate to use. In this program, we will use a WHILE loop to continually collect data until a stop button on the front pannel is pressed.</p>
+<ol class="arabic simple" start="3">
+<li><p>Find the WHILE loop in LABVIEW and drag one around the DAQ assistant. A small stop button will appear in the bottom right corner of the loop. If there is not already one there, add a control to this loop by right-clicking and selecting <em>create</em> then <em>control</em>. Your Block Diagram should looks something like the following:</p></li>
+</ol>
+<figure>
+    <img src="S2Wk7_Figures/LabView5.PNG"
+         alt="An photograph of the simple circuit that you should build in order to carry out this investigation." width="700">
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>We now need to create an indicator so that we can see the output of the light-dependent resistor. Usually this can be done by hovering over the output of the DAQ assistant (bottom-right triangle), right-clicking and then chosing <em>create</em> and then <em>numeric indicator</em> or <em>graph-indicator</em>.</p></li>
+</ol>
+<p>If we run this program, you will note that if you move your hand over or shine a light on the light-dependent resistor, the number in the numeric indicator and the y-axis values on the plot will change in response. The graph will update with every loop but only display one value, which is why we do not see the data being plot as a function of time. This is where the array functions become useful by allowing us to build an array of all the previously measured values.</p>
+<ol class="arabic simple" start="5">
+<li><p>From the functions menu in the block diagram, find the <em>index array</em> function and add it into the loop. Then find the <em>insert into array function</em> and also add this inside the loop. Right click on the loop and add the <em>shift register</em>. Wire these components together as follows:</p>
+<ul class="simple">
+<li><p>Connect the output of the <em>insert into array</em> function and wire it to the right-hand side shift register arrow (this will store the current array of measurements and add the value of the next loop to the next row of the array).</p></li>
+<li><p>Wire the left-hand shift register into the <em>n-dim array</em> input of the <em>insert into array</em> function.</p></li>
+<li><p>Wire the <em>n-dimensional array</em> input of the <em>index array</em> function to the data output of the DAQ assistant.</p></li>
+<li><p>Finally wire the output of the <em>index array</em> function into the <em>n-1</em> input of the <em>insert into array</em> function.</p></li>
+</ul>
+</li>
+<li><p>To ensure that our graph actually displays our measurements as a function of time we can delete the wire currently serving our waveform graph (output of the DAQ assistant) and rewire it to the output of the <em>insert into array</em> function.</p></li>
+</ol>
+<p>Your block digram should look something like the following:</p>
+<figure>
+    <img src="S2Wk7_Figures/PhotoDetect1.png"
+         alt="An photograph of the block diagram that is built by following the steps above." width="700">
+</figure>
+<p>If the program is run now, the waveform graph will continually plot the measured amplitude as a function of time. If we stop and re-run the program the graph will continue to plot data from where it left off before. To clear the waveform graph each time we run the program, we can simply add a constant to the left-hand shift register. The purpose of this constant is to clear the array whenever the prgoram is run. Without it, the VI would remember every measurement that has been taken in the whole session.</p>
+<p>Your program is now ready! Press run and move youe hand over the photodiode or shine the flash from your phone onto it and collect some cool data!</p>
+<p>To export this data, simply stop the program, right click on the graph and select <em>export</em> and then your preferred export option.</p>
+<div class="section" id="concluding-thoughts">
+<h3>Concluding Thoughts<a class="headerlink" href="#concluding-thoughts" title="Permalink to this heading">#</a></h3>
+<p>This may be a simple circuit and LabView script but it demonstrates how powerful computer interfacing can be in experimental Physics - running the program for just a few minutes will result in thousands of data points!</p>
+<p>After Easter you will be performing a lab experiment to determine a value of Planck’s constant which requires you to use the circuit and program built above. As part of this experiment, you will also build a circuit and LabView script to power an LED - this is a very similar process except the analogue <strong>output</strong> of the myDAQ will need to be used to supply different voltages to the LED.</p>
+</div>
+</div>
+<div class="section" id="back-to-python">
+<h2>Back to Python…<a class="headerlink" href="#back-to-python" title="Permalink to this heading">#</a></h2>
+<p>After the Easter break you will complete another Python skills task which tests your knowledge of using Pandas Dataframes and performing non-linear fits (in addition to the semester 1 Python content). The details of this task will be provided closer to the time and you will have the full workshop to attempt the skills task (which will be due the following Monday).</p>
+<p>Please use the rest of this session to review the topics that we have covered in Python and ask for help on any that you would like additional support with.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -443,12 +528,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S2_Wk6_Pandas.html"
+       href="S2_Wk7_An_Introduction_to_LabView.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Pandas DataFrames</p>
+        <p class="prev-next-title">An Introduction to LabView</p>
       </div>
     </a>
     <a class="right-next"
@@ -469,6 +554,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#builing-a-light-detector-circuit">Builing a Light Detector Circuit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mydaq-and-labview-walkthrough">myDAQ and LabView Walkthrough</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concluding-thoughts">Concluding Thoughts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-python">Back to Python…</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
