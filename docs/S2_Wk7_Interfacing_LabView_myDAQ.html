@@ -440,10 +440,7 @@ document.write(`
 <li><p>Plug the myDAQ into the PC using the supplied cable.</p></li>
 </ol>
 <p>The circuit you build should look like this:</p>
-<figure>
-    <img src="S2Wk7_Figures/myDAQ_build.jpg"
-         alt="An photograph of the simple circuit that you should build in order to carry out this investigation." width="500">
-</figure>
+<p><img alt="image, alt = &quot;An photograph of the simple circuit that you should build in order to carry out this investigation.&quot;" src="_images/myDAQ_build.jpg" /></p>
 </div>
 <div class="section" id="mydaq-and-labview-walkthrough">
 <h2>myDAQ and LabView Walkthrough<a class="headerlink" href="#mydaq-and-labview-walkthrough" title="Permalink to this heading">#</a></h2>
@@ -456,10 +453,7 @@ document.write(`
 <ol class="arabic simple" start="3">
 <li><p>Find the WHILE loop in LABVIEW and drag one around the DAQ assistant. A small stop button will appear in the bottom right corner of the loop. If there is not already one there, add a control to this loop by right-clicking and selecting <em>create</em> then <em>control</em>. Your Block Diagram should looks something like the following:</p></li>
 </ol>
-<figure>
-    <img src="S2Wk7_Figures/LabView5.PNG"
-         alt="An photograph of the simple circuit that you should build in order to carry out this investigation." width="700">
-</figure>
+<p><img alt="image, alt = &quot;An photograph of the simple script that you should build in order to carry out this investigation.&quot;" src="_images/LabView5.PNG" /></p>
 <ol class="arabic simple" start="4">
 <li><p>We now need to create an indicator so that we can see the output of the light-dependent resistor. Usually this can be done by hovering over the output of the DAQ assistant (bottom-right triangle), right-clicking and then chosing <em>create</em> and then <em>numeric indicator</em> or <em>graph-indicator</em>.</p></li>
 </ol>
@@ -476,10 +470,7 @@ document.write(`
 <li><p>To ensure that our graph actually displays our measurements as a function of time we can delete the wire currently serving our waveform graph (output of the DAQ assistant) and rewire it to the output of the <em>insert into array</em> function.</p></li>
 </ol>
 <p>Your block digram should look something like the following:</p>
-<figure>
-    <img src="S2Wk7_Figures/PhotoDetect1.png"
-         alt="An photograph of the block diagram that is built by following the steps above." width="700">
-</figure>
+<p><img alt="image, alt = &quot;An photograph of the block diagram that is built by following the steps above.&quot;" src="_images/PhotoDetect1.png" /></p>
 <p>If the program is run now, the waveform graph will continually plot the measured amplitude as a function of time. If we stop and re-run the program the graph will continue to plot data from where it left off before. To clear the waveform graph each time we run the program, we can simply add a constant to the left-hand shift register. The purpose of this constant is to clear the array whenever the prgoram is run. Without it, the VI would remember every measurement that has been taken in the whole session.</p>
 <p>Your program is now ready! Press run and move youe hand over the photodiode or shine the flash from your phone onto it and collect some cool data!</p>
 <p>To export this data, simply stop the program, right click on the graph and select <em>export</em> and then your preferred export option.</p>
