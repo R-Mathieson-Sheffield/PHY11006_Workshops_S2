@@ -481,18 +481,12 @@ document.write(`
 <div class="section" id="software">
 <h3>Software<a class="headerlink" href="#software" title="Permalink to this heading">#</a></h3>
 <p>DAQ hardware requires software to control the input and output of signals (e.g. LabVIEW). Here are a few key facts and ideas to bare in mind when thinking about LabView:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- LabVIEW programmes are referred to as Virtual Instruments (VIs). In a sense the combination of the computer and DAQ acts as an instrument. The user can create programmes to read input signals and send digital signals to the myDAQ.
-
-
-- LabView is a graphical programming language, meaning that instead of writing text based code (like Python), here snippets of code are prewritten and “wired” together graphically. These snippets of code are represented as icons. This has an interesting side effect, in that the program will not allow you to connect incompatible data types together. 
-
-
-- LabVIEW programmes enable the user to create an interface to this instrument with dials, knobs and displays. Imagine creating a programme that when run provides an interactive oscilloscope on the computer screen. Rotating the dials on the virtual instrument changes the values in the underlying graphical programme which changes the display of the waveform signal being measured by the myDAQ. 
-
-
-- The way code is constructed is no different to text based languages. You can read from and output to text files, you can use while loops, for loops, and have access to a large library of equipment control files to allow you to interface with lab equipment.
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>LabVIEW programmes are referred to as Virtual Instruments (VIs). In a sense the combination of the computer and DAQ acts as an instrument. The user can create programmes to read input signals and send digital signals to the myDAQ.</p></li>
+<li><p>LabView is a graphical programming language, meaning that instead of writing text based code (like Python), here snippets of code are prewritten and “wired” together graphically. These snippets of code are represented as icons. This has an interesting side effect, in that the program will not allow you to connect incompatible data types together.</p></li>
+<li><p>LabVIEW programmes enable the user to create an interface to this instrument with dials, knobs and displays. Imagine creating a programme that when run provides an interactive oscilloscope on the computer screen. Rotating the dials on the virtual instrument changes the values in the underlying graphical programme which changes the display of the waveform signal being measured by the myDAQ.</p></li>
+<li><p>The way code is constructed is no different to text based languages. You can read from and output to text files, you can use while loops, for loops, and have access to a large library of equipment control files to allow you to interface with lab equipment.</p></li>
+</ul>
 <p><strong>Access to the proprietary LabVIEW software is via University Desktops or via download.</strong></p>
 <p>The general steps to creating a LabView programme are:</p>
 <ol class="arabic simple">
