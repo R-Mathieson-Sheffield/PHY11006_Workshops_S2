@@ -451,10 +451,7 @@ document.write(`
 </ol>
 <p>In the last set of activities you built a FOR loop which requires the user to know the exact number of times that the loop needs to be executed prior to running the loop. Depending on the application, this number may not always be known and instead a WHILE loop may be more appropriate to use. In this program, we will use a WHILE loop to continually collect data until a stop button on the front pannel is pressed.</p>
 <ol class="arabic simple" start="3">
-<li><p>Find the WHILE loop in LABVIEW and drag one around the DAQ assistant. A small stop button will appear in the bottom right corner of the loop. If there is not already one there, add a control to this loop by right-clicking and selecting <em>create</em> then <em>control</em>. Your Block Diagram should looks something like the following:</p></li>
-</ol>
-<p><img alt="image, alt = &quot;An photograph of the simple script that you should build in order to carry out this investigation.&quot;" src="_images/LabView5.PNG" /></p>
-<ol class="arabic simple" start="4">
+<li><p>Find the WHILE loop in LABVIEW and drag one around the DAQ assistant. A small stop button will appear in the bottom right corner of the loop. If there is not already one there, add a control to this loop by right-clicking and selecting <em>create</em> then <em>control</em>.</p></li>
 <li><p>We now need to create an indicator so that we can see the output of the light-dependent resistor. Usually this can be done by hovering over the output of the DAQ assistant (bottom-right triangle), right-clicking and then chosing <em>create</em> and then <em>numeric indicator</em> or <em>graph-indicator</em>.</p></li>
 </ol>
 <p>If we run this program, you will note that if you move your hand over or shine a light on the light-dependent resistor, the number in the numeric indicator and the y-axis values on the plot will change in response. The graph will update with every loop but only display one value, which is why we do not see the data being plot as a function of time. This is where the array functions become useful by allowing us to build an array of all the previously measured values.</p>
