@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Python Assessment &#8212; PHYS11006 - Computing Skills Workshop</title>
+    <title>Python Skills Assessment &#8212; PHYS11006 - Computing Skills Workshop</title>
   
   
   
@@ -60,6 +60,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'S2_Wk8_PythonAssessment';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -202,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 8</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Assessment</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Skills Assessment</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 9</span></p>
 <ul class="nav bd-sidenav">
@@ -381,7 +383,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -392,11 +396,30 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python Assessment</h1>
+    <h1>Python Skills Assessment</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment-brief">Assessment Brief</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -406,10 +429,127 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="python-assessment">
-<h1>Python Assessment<a class="headerlink" href="#python-assessment" title="Permalink to this heading">#</a></h1>
-<p>This week will be dedicated to performing a Python related skills task. In this activity you will use the Python skills you have developed throughout the year to perform a task that will involve extracting data from a Pandas DataFrame, performing a non-linear fit and producing a high quality plot.</p>
-<p>Further details for the assessment will be provided closer to the time. You will have this session to work on the skills task and will need to submit it for assessment by 10 am on Monday of week 9.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-skills-assessment">
+<h1>Python Skills Assessment<a class="headerlink" href="#python-skills-assessment" title="Permalink to this heading">#</a></h1>
+<p>In this session you will have the opportunity to work on your Python skills assessment. As was the case last semester you will be asked to complete a series of tasks using the skills that we have covered in the computing workshops. The assessment this week involves:</p>
+<ul class="simple">
+<li><p>Using Pandas DataFrames to filter and sort data.</p></li>
+<li><p>Performing non-linear regressions for data extracted from a Pandas DataFrame.</p></li>
+<li><p>Performing a weighted linear regression and calculating <span class="math notranslate nohighlight">\(\chi_n^2\)</span>.</p></li>
+<li><p>Interpreting the value of <span class="math notranslate nohighlight">\(\chi_n^2\)</span>.</p></li>
+<li><p>Presenting data in a high quality plot with subplots.</p></li>
+</ul>
+<p>Please complete these activities in a Jupyter Notebook and then submit this as a PDF to the submission portal on BlackBoard. <strong>The submission is due by 9am on Monday the 22nd of April.</strong></p>
+<hr class="docutils" />
+<div class="section" id="assessment-brief">
+<h2>Assessment Brief<a class="headerlink" href="#assessment-brief" title="Permalink to this heading">#</a></h2>
+<p>You have been provided with three csv files containing data about the 2020 Covid-19 pandemic. These files are:</p>
+<ul class="simple">
+<li><p><strong>“modified_country_vaccinations.csv”</strong> - this file contains information about the vaccine campaigns of different countries around the world. For every country, metrics are provided for a range of dates.</p></li>
+<li><p><strong>“worldometer_coronavirus_daily_data.csv”</strong> - this file contains covid-19 related statistics provided for each country on a per day basis.</p></li>
+<li><p><strong>“worldometer_coronavirus_summary_data.csv”</strong> - this file contains a summary of covid-19 related statistics for each country.</p></li>
+</ul>
+<p>You are provided with a Jupyter Notebook in CoCalc to perform the following tasks.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading">#</a></h2>
+<p><strong>Using Pandas</strong> import the data from the csv files into three DataFrames and familiarise yourself with how the DataFrames are organised.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Remember that the <em>display()</em> function is a great way to view a DataFrame and much nicer to look at than <em>print()</em>.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this heading">#</a></h2>
+<p>From the worldometer_coronavirus_summary data, using a for loop, determine:</p>
+<ul class="simple">
+<li><p>the total number of confirmed cases in each continent,</p></li>
+<li><p>the total number of deaths attributed to covid-19 in each continent,</p></li>
+<li><p>the percentage of confirmed cases that lead to deaths for each continent.</p></li>
+</ul>
+<p><strong>The for loop should contain clear print statements outlining your findings.</strong></p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>You will want to use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.unique.html"><em>.unique()</em></a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sum.html"><em>.sum()</em></a> for this task.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this heading">#</a></h2>
+<p>Filter the worldometer_coronavirus_summary_data to create a new DataFrame containing only information pertaining to countries in Europe. Sort this DataFrame by the total number of deaths and display the top 5 countries by deaths.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Recall that there are pandas functions that allow you sort a DataFrame and only view the first/last 5 rows in a DataFrame. Extra hint: what are the possible outcomes of a coin flip?</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Permalink to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Tasks 4 and 5 will require you to look at data organised by calendar dates.</p>
+<p>Although it is easy to plot dates on the axes of a Python plot, fitting data is much more difficult using them. As such, for tasks 4 and 5 your x-axis data should be the “day number” for that particular task e.g. 1, 2, 3, 4.</p>
+<p>You can easily make a linear array for the range of days required for a particular task using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html"><em>np.linspace()</em></a>. To get the corresponding range from your DataFrame, you can simply slice a particular column using the square brackets method e.g. DataFrame[“column_header”][start:stop].</p>
+</div>
+<p>Using the <em>worldometer_coronavirus_summary_data</em>, <em>worldometer_coronavirus_daily_data</em> and <em>modified_country_vaccinations_data</em> sets, you will create a figure containing subplots. Ensure that the plots are presented clearly and with the appropriate features of a high quality plot. To create the figure and subplots, use the following snippet of code:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Firstly, lets set the size of our figure. </span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
+
+<span class="c1"># Next we can add our subplots and arrange them vertically.</span>
+<span class="n">ax1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>4.1<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>On the first subplot make a bar chart showing the total number of deaths for the 10 European countries with the highest number of total deaths.</p>
+</div>
+<div class="section" id="id2">
+<h3>4.2<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>On the second plot show the number of new Covid-19 cases for the first 28 days of the pandemic for the UK, France and Germany. Due to incomplete data on day-zero, <strong>we will consider the first day of the pandemic to be the second earliest date in the</strong> <em><strong>_coronavirus_daily_data</strong></em> i.e. when slicing your DataFrame start at index 1 not 0.</p>
+</div>
+<div class="section" id="id3">
+<h3>4.3<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>The number of new cases can be modelled using the following equation:</p>
+<div class="math notranslate nohighlight">
+\[ y = A(1+R)^t+O\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the initial number of cases, <span class="math notranslate nohighlight">\(R\)</span> is the rate of increase, <span class="math notranslate nohighlight">\(t\)</span> is the number of days and <span class="math notranslate nohighlight">\(O\)</span> is an offset. Using this equation and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">curve_fit</a>, fit the above data, include the fits on your plot and report the rate of increase (and associated error) of the number of cases for the United Kingdom, France and Germany.</p>
+</div>
+<div class="section" id="id4">
+<h3>4.4<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>on the third subplot show the total number of vaccinations given in the UK between the 10th and 50th day of the vaccination campaign. For the purpose of this exercise, an additional column has been added to <em>modified_country_vaccinations_data</em> called “VaxError”.</p>
+<ol class="arabic simple">
+<li><p>Using VaxError perform a <strong>weighted linear regression</strong> for this subset of the data and include this on your plot.</p></li>
+<li><p>Report the vaccination rate (and its associated) error over these 40 days.</p></li>
+</ol>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Break this task up into its component parts using comments to break up the code in your cell. As we only want to produce one figure only write <em>plt.show()</em> at the very end of your cell - this will allow you to code the calculations and plotting instructions for each subplot chronologically without the final figure being broken up.</p>
+<p>The index range to slice your DataFrame for part 2 of this task is [0:28].</p>
+<p>The index range to slice your DataFrame for part 3 of this task is [1:29].</p>
+<p>The index range to slice your DataFrame for part 4 of this task is [9:49].</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="task-5">
+<h2>Task 5<a class="headerlink" href="#task-5" title="Permalink to this heading">#</a></h2>
+<p>Calculate the <a class="reference external" href="https://r-mathieson-sheffield.github.io/PHY11006_Workshops_S2/S2_Wk5_Weighted_and_NonLinear_Regression.html#goodness-of-fit">reduced Chi-squared (<span class="math notranslate nohighlight">\(\chi_n^2\)</span>)</a> value for the weighted linear regression.</p>
+<p>If you were to obtain this value of <span class="math notranslate nohighlight">\(\chi_n^2\)</span> in one of your experiments from the practical lab sessions, what would this suggest about your data/model?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>You may wish to review the notes on how to <a class="reference external" href="https://r-mathieson-sheffield.github.io/PHY11006_Workshops_S2/S2_Wk5_Weighted_and_NonLinear_Regression.html#goodness-of-fit">calculate</a> and <a class="reference external" href="https://r-mathieson-sheffield.github.io/PHY11006_Workshops_S2/S2_Wk5_Weighted_and_NonLinear_Regression.html#interpretting-the-chi-2-nu">interpret</a> the reduced Chi-squared (<span class="math notranslate nohighlight">\(\chi_n^2\)</span>).</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -470,6 +610,31 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment-brief">Assessment Brief</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
