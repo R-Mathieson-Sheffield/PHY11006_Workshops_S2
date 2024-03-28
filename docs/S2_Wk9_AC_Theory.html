@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Circuits &#8212; PHYS11006 - Computing Skills Workshop</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S2_Wk9_AC_Theory';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simulating AC Circuits" href="S2_Wk9_AC_Circuits_Simulations.html" />
+    <link rel="prev" title="Python Skills Assessment" href="S2_Wk8_PythonAssessment.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to PHY11006 Computing Skills
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">S1 Week 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk1_Performing_Calculations_with_Computers_I.html">Performing Calculations with Computers I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk1_Measurements_Errors_and_Uncertainty.html">Measurements, Errors and Uncertainty</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S1 Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk2_Performing_Calculations_with_Computers_II.html">Performing Calculations with Computers II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk2_Functions_and_Modules.html">Functions and Modules</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S1 Week 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk3_Conditional_Statements_and_Loops.html">Conditional Statements and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk3_Visualising_Data_and_Linear_Regression.html">Visualising Data and Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S1 Week 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk4_Simple_Linear_Regression.html">Simple Linear Regression</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S1 Week 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk5_Solving_Coding_Problems.html">Solving Coding Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wk5_Artificial_Intelligence.html">Artificial Intelligence (AI)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S1 Week 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Wk6_Computing_Skills_Assessment.html">Computing Skills Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk2_Take_Your_Barometer_For_A_Walk.html">Take Your Barometer For A Walk!</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 5</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk5_Weighted_and_NonLinear_Regression.html">Weighted and Non-Linear Regression Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 6</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk6_Pandas.html">Pandas DataFrames</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 7</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk7_An_Introduction_to_LabView.html">An Introduction to LabView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk7_Interfacing_LabView_myDAQ.html">Interfacing with LabView and a myDAQ</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 8</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk8_PythonAssessment.html">Python Skills Assessment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 9</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">AC Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk9_AC_Circuits_Simulations.html">Simulating AC Circuits</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Useful_Functions.html">Useful Functions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FS2_Wk9_AC_Theory.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/S2_Wk9_AC_Theory.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>AC Circuits</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ac-circuits-theory">AC Circuits Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-information">Background Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reactance-and-impedence">Reactance and Impedence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resistor-response">Resistor Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitor-response">Capacitor Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inductor-response">Inductor Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lc-and-lcr-circuits">LC and LCR Circuits</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="ac-circuits">
+<h1>AC Circuits<a class="headerlink" href="#ac-circuits" title="Permalink to this heading">#</a></h1>
+<p>Dr Mark Quinn &amp; Dr Ross Mathieson.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This session will be used to introduce you to circuit simulating software. The tasks in this workshop are directly related to those that you will perform in the experimental labs in weeks 8 and 9.</p>
+<p>Please use the first 30 minutes of this session to familiarise yourself with the theory associated with AC circuits as this will aid your understanding in the lab activities.</p>
+</div>
+<div class="section" id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Have an understanding of the physical principles that drive AC circuits.</p></li>
+<li><p>Have an understaning of the operating principles of an LCR circuit.</p></li>
+<li><p>Be able to simulate circuits using specialised software.</p></li>
+<li><p>Be able to analyse data extracted from simulated circuits.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A second set of notes concerning circuit simulations and the associated activities for the latter two learning objectives will be released during this workshop. This is deliberate so that you first have time to engage with the theory materials.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="ac-circuits-theory">
+<h2>AC Circuits Theory<a class="headerlink" href="#ac-circuits-theory" title="Permalink to this heading">#</a></h2>
+<p>This information has been directly lifted from the AC and LCR lab scripts. Depending on which lab group you are in you may encounter these notes prior to the workshop. They are here for completeness and you should review them before you either simulate or build the AC circuits in question.</p>
+</div>
+<div class="section" id="background-information">
+<h2>Background Information<a class="headerlink" href="#background-information" title="Permalink to this heading">#</a></h2>
+<p>Charged particles such as electrons can be moved and controlled via electric fields. For example, applying a potential difference of 5 volts from a battery across a 1 metre length of wire creates a 5 V/m electric field. Free electrons in the wire will be accelerated along one direction. Such direct current (DC) is typically used to transfer energy from a voltage source to other devices. Examples here include your phone charger or a simple light bulb.</p>
+<p>Changing the direction of current is simple, just swap the direction of the electric field. This is equivalent to swapping the wire connections on the battery. The electrons are then pushed in the opposite direction. Hence, if we swap the wire connectings rapidly, at some frequency <span class="math notranslate nohighlight">\(f\)</span>, we can produce alternating current (AC). Such a process, as depicted in the gif below, would create a square wave. The novelty here is that we can use AC to send and control time varying signals.</p>
+<p><img alt="image, alt = &quot;A gif showing how an AC current may be generated.&quot;" src="_images/AC_Current.gif" /></p>
+<p>You will already have begun to utilise such signals. Recall the <a class="reference external" href="https://docs.google.com/document/d/1MO9l1KfI4wYj7griFdYOS63gFtoUIch3tKEN3R4q_-k/edit">skills session</a> utilising signal measurements. There you produced AC signals using signal generators and microphones. The wave properties of these signals were then measured using an oscilloscope. Much of our experimental work involves creating and detecting signals of various properties.</p>
+<p>Learning how to control and process such signals is the main motivation for studying and developing AC circuits. There are three primary components which form AC circuits:</p>
+<ul class="simple">
+<li><p>Resistors:</p>
+<ul>
+<li><p>Defined by resistance R</p></li>
+<li><p>Control current, I, via V=IR relationship</p></li>
+<li><p>Used for signal processing</p></li>
+</ul>
+</li>
+<li><p>Capacitors:</p>
+<ul>
+<li><p>Defined by capacitance C</p></li>
+<li><p>Store electrical energy in surface charge</p></li>
+<li><p>Control timing of signals</p></li>
+<li><p>Used for signal processing</p></li>
+</ul>
+</li>
+<li><p>Inductors:</p>
+<ul>
+<li><p>Defined by inductance L</p></li>
+<li><p>Store electrical energy in a magnetic field</p></li>
+<li><p>Control timing of signals</p></li>
+<li><p>Used for signal processing</p></li>
+</ul>
+</li>
+</ul>
+<p>See Figure 2 for a visual description of these components. We will spend the first half of this skills session investigating how these components respond to alternating current.</p>
+<p><img alt="image, alt = &quot;An image showing a resistor, capacitor and inductor with their circuit symbols and physical depiction.&quot;" src="_images/LCR_Components.png" /></p>
+<p>For most purposes, alternating current is modulated as a sine wave via:</p>
+<div class="math notranslate nohighlight">
+\[ I(t) = I_m sin(\omega t), \]</div>
+<p>where <span class="math notranslate nohighlight">\(I_m\)</span> is the maximum current. As mentioned earlier, the current is driven by alternating fields, i.e <span class="math notranslate nohighlight">\(V(t)\)</span>, delivered by some power supply. The rate at which these electric fields change direction is defined by the frequency, <span class="math notranslate nohighlight">\(f\)</span>, or the angular equivilent <span class="math notranslate nohighlight">\(\omega = 2 \pi f \)</span>. Most power supplies or signal generators enable frequencies of up to a million cycles per second or 1 MHz.</p>
+<p>For reasons of efficiency, the mains electricity in most countries is distributed as AC. In many cases including the UK, the frequency is a nominal 50Hz. In our labs, we can create higher frequency currents in the kHz to MHz ranges. As the voltage in AC is not at its peak for most of the cycle time, a more useful measure is the root mean square or RMS value. This represents the average voltage during the cycle, which for a sine wave is:</p>
+<div class="math notranslate nohighlight">
+\[ V_{rms} = \frac{V_{max}}{\sqrt{2}} \approx 0.71\, V_{max}.\]</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="reactance-and-impedence">
+<h2>Reactance and Impedence<a class="headerlink" href="#reactance-and-impedence" title="Permalink to this heading">#</a></h2>
+<p>How a component reacts to such alternating current is a key point of this session. Some components may resist an alternating field. Other types of components may offer little resistance to changing current direction. This is of course distinct from its response to DC where we use the term resistance with symbol <span class="math notranslate nohighlight">\(R\)</span>. Hence, to distinguish the resistance to AC, we will give it the name of <a class="reference external" href="https://en.wikipedia.org/wiki/Electrical_reactance">reactance</a> with symbol <span class="math notranslate nohighlight">\(X\)</span>. A key point to note is that reactance is frequency dependant i.e. <span class="math notranslate nohighlight">\(X(\omega)\)</span>.</p>
+<p>Physically, the DC resistance component dissipates energy due to collisions in the form of heat. Reactance, on the other hand, stores energy as an electric field (such as in a capacitor) or magnetic field (as in an inductor).</p>
+<p>The combined opposition to current flow is termed the <a class="reference external" href="https://en.wikipedia.org/wiki/Electrical_impedance">impedance</a>. This includes both the DC resistance and the AC reactance:</p>
+<div class="math notranslate nohighlight">
+\[ Z = R + iX. \]</div>
+<p>The factor of <span class="math notranslate nohighlight">\(i\)</span> in the impedance accounts for a possible phase lag between the current and voltage in the component.</p>
+<hr class="docutils" />
+<div class="section" id="resistor-response">
+<h3>Resistor Response<a class="headerlink" href="#resistor-response" title="Permalink to this heading">#</a></h3>
+<p>A resistor, as shown in the gif below, has zero reactance i.e. <span class="math notranslate nohighlight">\(X_R=0\)</span>, so its impedance is <span class="math notranslate nohighlight">\(Z_R=R\)</span>. The collisions of free electrons with atoms does not increase when this current is alternating. We should then expect that the energy loss from such collisions is:</p>
+<div class="math notranslate nohighlight">
+\[ V_R(t) = I(t)R = I_m sin(\omega t) = V_{mR} sin(\omega t). \]</div>
+<p>We can see this response from a resistor in the gif below. Notice that both the current and voltage are in phase. This is further demonstrated by the rotating vectors represented in the phasor diagram. As it rotates through a full cycle, both I and V vectors remain overlapped. Here the current and resistor voltage drop are shown as a function of time. Source: <a class="reference external" href="https://www.animations.physics.unsw.edu.au/jw/AC.html">UNSW</a>.</p>
+<p><img alt="image, alt = &quot;A GIF showing a resistor response to AC.&quot;" src="_images/Resistor_AC_Response.gif" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="capacitor-response">
+<h3>Capacitor Response<a class="headerlink" href="#capacitor-response" title="Permalink to this heading">#</a></h3>
+<p>Compared to a resistor, a capacitor has a more interesting response to AC. This component provides a large surface area for charge to accumulate. This occurs via the force of the electric field from the power supply.</p>
+<p>As charge <span class="math notranslate nohighlight">\(Q\)</span> accumulates on one side of the capacitor, a potential difference builds according to <span class="math notranslate nohighlight">\(V_C=Q/C\)</span>. But of course, with AC, the charge is then pulled off and attracted to the other side of the capacitor. We can predict the resulting response by adding up all the charge via:</p>
+<div class="math notranslate nohighlight">
+\[ Q = \int I(t) dt = - \frac{I_M}{\omega} cos(\omega t). \]</div>
+<p>Hence, the voltage across the capacitor varies as:</p>
+<div class="math notranslate nohighlight">
+\[ V_C = - \frac{I_M}{C \omega} cos(\omega t) = V_{mC} sin(\omega t - \pi/2). \]</div>
+<p>It is apparent that this predicts a negative cosine function as opposed to the original sine function of the current. This is depicted in the gif below. There is now a <span class="math notranslate nohighlight">\(90\)</span> degree phase difference between the two signals. The current leads the capacitor voltage by a quater cycle. Physically, this is intuitive; it takes time to build up and remove charge (and hence potential) on the capacitor. So, the capacitor has a builtin time delay when used in an AC circuit.</p>
+<p>Unlike a resistor, an ideal capacitor does not dissipate energy i.e. it has zero resistance, <span class="math notranslate nohighlight">\(R_C=0\)</span>. It does however have ‘resistance’ to AC i.e. reactance. If we analyse its response in terms of maximum voltage, the equation above predicts that <span class="math notranslate nohighlight">\(V_{mC}=I_m/C \omega\)</span> . The <span class="math notranslate nohighlight">\(1/C \omega\)</span> term here signifies the capacitor’s reactance <span class="math notranslate nohighlight">\(X_C\)</span>.  So for an ideal capacitor, its total impedance is:</p>
+<div class="math notranslate nohighlight">
+\[ Z_C = R_C + iX_C = \frac{1}{C \omega}. \]</div>
+<p>Notice the inverse relation of impedance and AC frequency for a capacitor. A lower frequency of current will result in a higher impedance. Low frequencies enable more charge to be accumulated since there is more time between cycles. But capacitors have a maximum charge limit and hence when filled will impede further charge. At higher AC frequencies, this limit is never approached since there is insufficient time before the capacitor discharges. Hence, there is lower impedance at higher frequencies for capacitors. Source: <a class="reference external" href="https://www.animations.physics.unsw.edu.au/jw/AC.html#capacitors">UNSW</a>.</p>
+<p><img alt="image, alt = &quot;A GIF showing a capacitor response to AC.&quot;" src="_images/Capacitor_AC_Response.gif" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="inductor-response">
+<h3>Inductor Response<a class="headerlink" href="#inductor-response" title="Permalink to this heading">#</a></h3>
+<p>An inductor has an even more active response to AC. An inductor is essentially an electromagnet. In a DC scenario, a static magnetic field would be produced by the coil (with <span class="math notranslate nohighlight">\(N\)</span> turns) and core which comprise the inductor. But changing the direction of the current will also change the magnetic flux <span class="math notranslate nohighlight">\(\Phi_B\)</span>. This changing magnetic field will induce a potential difference across the inductor opposing the AC:</p>
+<div class="math notranslate nohighlight">
+\[ V_L = - N \frac{d \Phi_B}{dt} = - L \frac{dI(t)}{t}. \]</div>
+<p>The constant <span class="math notranslate nohighlight">\(L\)</span>  is termed the inductance . The faster the current changes, the larger the opposing voltage from the inductor. So, we certainly expect some reactance to high frequency AC. We can derive this by completing the derivative in the equation above to show that:</p>
+<div class="math notranslate nohighlight">
+\[ V_L = \omega L I(t) = V_{mL} sin(\omega t + \pi/2). \]</div>
+<p>Note that in this case, the phase difference is +90 degrees. This indicates that the inductor voltage will lead the AC by a quater cycle. A visual of this response is shown in the gif below (the tangent line indicates the derivative <span class="math notranslate nohighlight">\(dI/dt\)</span> since this rate of change determines the induced voltage <span class="math notranslate nohighlight">\(V_L\)</span>):</p>
+<p><img alt="image, alt = &quot;A GIF showing an inductor response to AC.&quot;" src="_images/Inductor_AC_Response.gif" /></p>
+<p>Source: <a class="reference external" href="https://www.animations.physics.unsw.edu.au/jw/AC.html#inductors">UNSW</a>.</p>
+<p>We can also derive the reactance of an inductor. The maximum inductor voltage is <span class="math notranslate nohighlight">\(V_{mL}=L \omega I_m = X_L I_m\)</span> and hence <span class="math notranslate nohighlight">\(X_L=L \omega\)</span>. As alluded to the first inductor equation above, an inductor will resist higher frequency AC and this is confirmed by <span class="math notranslate nohighlight">\(X_L \propto \omega\)</span>. Conversely, in the DC limit i.e. low frequency, the opposing voltage <span class="math notranslate nohighlight">\(V_{L} \to 0\)</span> and hence the reactance also goes towards zero. So for an ideal inductor, with <span class="math notranslate nohighlight">\(R_L=0\)</span>, its total impedance is:</p>
+<div class="math notranslate nohighlight">
+\[Z_L=R_L+iX_L=i \omega L. \]</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="lc-and-lcr-circuits">
+<h3>LC and LCR Circuits<a class="headerlink" href="#lc-and-lcr-circuits" title="Permalink to this heading">#</a></h3>
+<p>The interplay between a capacitor and an inductor can create a <a class="reference external" href="https://en.wikipedia.org/wiki/Resonator">resonator</a>. As the name implies, such a system exhibits <a class="reference external" href="https://en.wikipedia.org/wiki/Resonance">resonance</a>. A defining characteristic of this is the storage of energy in different forms. For example, a swing (pendulum) resonates as energy is transferred between kinetic and potential forms. This is depicted in the gif below. Without any friction or drag, such a system would oscillate forever.</p>
+<p>In the case of a capacitor and an inductor, the energy is electromagnetic. The buildup of charge on the capacitor stores energy within an electric field. When discharged, the charge induces a voltage across the inductor which stores the energy in a magnetic field. The inductor’s magnetic field induces a voltage that drives current onto the capacitor, setting up an electric field and repeating the process.</p>
+<p>A simple pendulum resonates due to the interplay of potential and kinetic energy. In the case of an inductor-capacitor, energy oscillates back and forth between the capacitor’s electric field, <span class="math notranslate nohighlight">\(E\)</span>, and the inductor’s magnetic field, <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p><img alt="image, alt = &quot;A GIF comparing LCR resonance to the conversion of kinetic and potential energy for a pendulum &quot;" src="_images/LCR_Resonance.gif" /></p>
+<p>As with any harmonic oscillator, we expect that this system will oscillate at some natural frequency.  This can be predicted via the specific combination of inductance <span class="math notranslate nohighlight">\(L\)</span> and capacitance <span class="math notranslate nohighlight">\(C\)</span>.  The inclusion of damping in this system would take the form of electric resistance <span class="math notranslate nohighlight">\(R\)</span> in the circuit.  To replenish the energy lost to damping we can drive the system with an AC power supply. As you know when pushing a person on a swing, choosing a driving frequency which matches the system’s resonant frequency will result in maximum amplitude. Here, this will be in terms of the amount of current flowing through the LCR circuit. When the driving frequency from the power supply matches the resonant frequency, we should observe that the amount of current oscillating between the inductor and capacitor will significantly increase to some maximum value.</p>
+<p>We can derive a simple physical model by starting with an LC circuit. To do so, we will model the flow of current <span class="math notranslate nohighlight">\(I(t)\)</span> through the circuit. As <span class="math notranslate nohighlight">\(I(t)\)</span> changes, the resulting potential difference across the components will also vary. Recall that the potential difference across the inductor is:</p>
+<div class="math notranslate nohighlight">
+\[ V_L = - L \frac{dI(t)}{dt}, \]</div>
+<p>and for the capacitor:</p>
+<div class="math notranslate nohighlight">
+\[ V_C = \frac{Q(t)}{C}. \]</div>
+<p>To include current in our model, we can take the time derivative of this equation so that:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d V_C}{dt} = \frac{I(t)}{C}. \]</div>
+<p>Since there is no input voltage into our circuit, the overall potential must be zero:</p>
+<div class="math notranslate nohighlight">
+\[ V_L + V_C = 0, \]</div>
+<p>and hence:</p>
+<div class="math notranslate nohighlight">
+\[ V_L = - V_C. \]</div>
+<p>Substituting, we have:</p>
+<div class="math notranslate nohighlight">
+\[ I(t) = C \frac{dV_C}{dt} = -LC \frac{d^2 I(t)}{dt^2}, \]</div>
+<p>which can be arranged as a second order differential equation for the system:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2 I(t)}{dt^2} = -\frac{1}{LC}I(t). \]</div>
+<p>Notice how this follows the form of a <a class="reference external" href="https://en.wikipedia.org/wiki/Simple_harmonic_motion">simple harmonic oscillator</a>:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2 x(t)}{dt^2} = - \omega_0^2 I(t). \]</div>
+<p>Therefore, we can state that the natural frequency of the LC circuit is:</p>
+<div class="math notranslate nohighlight">
+\[ w_0 = \frac{1}{\sqrt{LC}}, \]</div>
+<p>with units of radians per second. At this frequency, the current is maximum i.e. resonant. This develops since the individual reactance of each component cancels-out (<span class="math notranslate nohighlight">\(X_L=X_C\)</span>). Hence, the impedance goes to zero and the current goes to maximum.</p>
+<p>Next, let us add some damping to the system. In a circuit, this takes the form of resistance which produces a potential of:</p>
+<div class="math notranslate nohighlight">
+\[ V_R = I(t)R. \]</div>
+<p>Now since, <span class="math notranslate nohighlight">\(V_L + V_C + V_R = 0\)</span>, the new differential equation for the LCR circuit is:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d^2I(t)}{dt^2} + \frac{I(t)}{LC} + \frac{I(t)R}{L} = 0. \]</div>
+<p>Our model now is in the form of a damped-driven harmonic oscillator. Solving this differential equation for the unknown function <span class="math notranslate nohighlight">\(I(t)\)</span> results in:</p>
+<div class="math notranslate nohighlight">
+\[ I(t) \approx I_0 sin(\omega t). \]</div>
+<p>The value of the current amplitude, <span class="math notranslate nohighlight">\(I_0\)</span>, can be solved using the total impedance Z:</p>
+<div class="math notranslate nohighlight">
+\[ I_0 = \frac{V_0}{|Z|} = \frac{V_0}{\sqrt{(Z_C + Z_L)^2 + Z_R^2}} = \frac{V_0}{\sqrt{(\omega L - \frac{1}{\omega C})^2 + R^2}}. \]</div>
+<p>Examples of the LCR current are shown in the image below for different values of <span class="math notranslate nohighlight">\(R\)</span>. The width of the peak is a measure of bandwidth. Rather than at half the peak value (the full width at half-max (FWHM) bandwidth is approximately <span class="math notranslate nohighlight">\(\Delta \omega / \sqrt{3}\)</span>), this width  is typically measured at half the peak current or voltage gain. This can be predicted as:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta \omega = \frac{R}{L}. \]</div>
+<p>Increasing <span class="math notranslate nohighlight">\(R\)</span> (or decreasing <span class="math notranslate nohighlight">\(L\)</span>) will increase the width of the bandwidth. The circuit effectively performs as a bandpass filter. Higher frequencies are blocked by the increasing reactance of the inductor to fast changing current. Conversely, lower frequencies are blocked by the increasing capacitor reactance.</p>
+<p><img alt="image, alt = &quot;Response of an LCR circuit to AC frequency.&quot;" src="_images/LCR_Current_Frequency.png" /></p>
+<p>The minimum impedance occurs at <span class="math notranslate nohighlight">\(\omega_0\)</span>, where the capacitor and inductor reactances cancel out. Increasing the damping term <span class="math notranslate nohighlight">\(R\)</span> results in greater bandwidth but reduced current. <a class="reference external" href="http://www.physics.louisville.edu/cldavis/phys299/notes/emo_lcr_driven.html">Source</a>.</p>
+<p>Rather than current, our experiments will measure potential difference. Hence, if we measure the voltage drop across the resistor, we can deduce the AC current via the linear relationship <span class="math notranslate nohighlight">\(V_R =I(t)R\)</span>. We can derive a physical model for the LCR circuit in terms of its response to driver frequency. The response will be measured as the the voltage drop across the resistor:</p>
+<div class="math notranslate nohighlight">
+\[V_{out} = V_R = I(t) R. \]</div>
+<p>We know that the amount of current <span class="math notranslate nohighlight">\(I(t)\)</span> that the system can conduct is limited by the alternating input potential:</p>
+<div class="math notranslate nohighlight">
+\[I(t) = \frac{V_{in}}{Z}, \]</div>
+<p>and the overall impedance of the circuit is:</p>
+<div class="math notranslate nohighlight">
+\[ Z = Z_L + Z_C + Z_R = i \omega L - \frac{i}{\omega C} + R.\]</div>
+<p>So the potential is:</p>
+<div class="math notranslate nohighlight">
+\[ V_{out} = \frac{V_{in}}{Z}R = \frac{V_in}{i \omega L - \frac{i}{\omega C} + R} R = \frac{V_{in}}{i \left( \frac{\omega L}{R} - \frac{1}{\omega C R} \right) + 1}. \]</div>
+<p>Notice how we can predict <span class="math notranslate nohighlight">\(V_{out}\)</span> for any driver frequency. Ideally we would like to write the model in terms of the resonant frequency and bandwidth:</p>
+<div class="math notranslate nohighlight">
+\[ V_{out} = \frac{V_{in}}{\frac{i \omega L}{R} \left(1 - \frac{R}{\omega L R \omega C} \right) + 1} = \frac{V_{in}}{\frac{i \omega L}{R} \left(1 - \frac{1}{\omega^2 L C} \right) + 1} = \frac{V_{in}}{\frac{i \omega}{\omega_0}Q \left(1 - \frac{\omega_0^2}{\omega^2} \right) + 1}. \]</div>
+<p>Since the output potential cannot exceed the input, we can write the LCR response model as the ratio:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{V_{out}}{V_{in}} = \frac{1}{\frac{i \omega}{\omega_0}Q \left(1 - \frac{\omega_0^2}{\omega^2} \right) + 1}. \]</div>
+<p>This is referred to as the gain of the circuit and helps us compare the frequency response for different circuits. Note that the ratio of  <span class="math notranslate nohighlight">\(\omega_0/ \Delta \omega\)</span> is referred to as the quality factor <span class="math notranslate nohighlight">\(Q\)</span> which can also be written as <span class="math notranslate nohighlight">\(1/\omega_0 RC\)</span>.</p>
+<p>With this model, at resonance <span class="math notranslate nohighlight">\(\omega = \omega_0\)</span> we expect that <span class="math notranslate nohighlight">\(V_{out}/V_{in}=1\)</span> where the inductor and capacitor impedance cancel, <span class="math notranslate nohighlight">\(Z_L+_ZC=0\)</span>. Hence, all the potential energy loss is across the resistor. However, this is assuming that there are no other sources of resistance in the circuit, i.e. <span class="math notranslate nohighlight">\(R_{total}=R\)</span>. A likely additional resistance is that of the wire coiled inside the inductor. While in practice this will be small, it will not be zero. If we include this and other sources of resistance out model can be written as:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{V_{out}}{V_{in}} = \frac{\frac{R}{R_{total}}}{\frac{i \omega}{\omega_0}Q \left(1 - \frac{\omega_0^2}{\omega^2} \right) + 1}, \]</div>
+<p>which predicts a height of the peak will be <span class="math notranslate nohighlight">\(R/R_{total}&lt;1\)</span> at resonance when <span class="math notranslate nohighlight">\(\omega = \omega_0\)</span>. The presence of the imaginary number <span class="math notranslate nohighlight">\(i\)</span> indicates a phase difference between <span class="math notranslate nohighlight">\(V_{out}\)</span> and <span class="math notranslate nohighlight">\(V_{in}\)</span>.  We can model this phase difference analytically as:</p>
+<div class="math notranslate nohighlight">
+\[ \Phi(\omega) = \tan^{-1}\left(-\frac{\omega L}{R} + \frac{1}{\omega C R} \right) = \tan^{-1}\left( \frac{\omega L}{R} \left( \frac{\omega_0^2}{\omega^2} -1 \right)\right) = \tan^{-1}\left(\frac{\omega}{\omega_0} Q \left( \frac{\omega_0^2}{\omega^2} -1 \right)\right). \]</div>
+<p>Notice that we expect negative <span class="math notranslate nohighlight">\(\Phi\)</span> at large <span class="math notranslate nohighlight">\(\omega\)</span>  due to the inductor impedance and positive <span class="math notranslate nohighlight">\(\Phi\)</span> at low frequencies when the capacitor impedance dominates. We can also notice that at resonance when <span class="math notranslate nohighlight">\(\omega = \omega_0 \)</span>, the phase difference goes to zero.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="S2_Wk8_PythonAssessment.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python Skills Assessment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="S2_Wk9_AC_Circuits_Simulations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simulating AC Circuits</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ac-circuits-theory">AC Circuits Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-information">Background Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reactance-and-impedence">Reactance and Impedence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resistor-response">Resistor Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capacitor-response">Capacitor Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inductor-response">Inductor Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lc-and-lcr-circuits">LC and LCR Circuits</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr Ross Mathieson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

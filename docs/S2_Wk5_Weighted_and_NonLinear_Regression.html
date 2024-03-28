@@ -208,7 +208,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">S2 Week 9</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="S2_Wk9_LCR_Circuits.html">Simulating AC Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk9_AC_Theory.html">AC Circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S2_Wk9_AC_Circuits_Simulations.html">Simulating AC Circuits</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -492,38 +493,38 @@ document.write(`
 <p>Now that we know why we would perform a weighted linear regression, we must ask “how do we do this mathematically?”.</p>
 <p>First, let’s recall the equations we used in a simple linear regression to determine the gradient and intercept of the line of best fit. These values of gradient and intercept are calculated by minimising the residuals (the discrepency between the model fit and actual data).</p>
 <p>The gradient of the line of best fit from a simple linear regression is determined using the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4847f48-d5e1-4603-8283-465da9bf041e">
-<span class="eqno">(30)<a class="headerlink" href="#equation-d4847f48-d5e1-4603-8283-465da9bf041e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b3640b6-42d9-4083-8390-463b0c50daa5">
+<span class="eqno">(30)<a class="headerlink" href="#equation-7b3640b6-42d9-4083-8390-463b0c50daa5" title="Permalink to this equation">#</a></span>\[\begin{equation}
      m = \frac{N\sum{(x_i \cdot y_i)} - \sum{x_i} \cdot\sum{y_i}}{N\sum{\left(x_i^2\right)} - \sum{\left(x_i\right)}^2},
 \end{equation}\]</div>
 <p>and the intercept of the line of best fit could be determined using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dc0d14ba-37fd-467f-b9f9-abe29b97b446">
-<span class="eqno">(31)<a class="headerlink" href="#equation-dc0d14ba-37fd-467f-b9f9-abe29b97b446" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-80689e7c-c9c3-43c6-a58f-8c42d5c2b9b6">
+<span class="eqno">(31)<a class="headerlink" href="#equation-80689e7c-c9c3-43c6-a58f-8c42d5c2b9b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
     c = \frac{\sum{y_i} - m\sum{x_i}}{N}.
 \end{equation}\]</div>
 <p>If we then want to perform a weighted linear regression, these equations may be modified to include a “<em>weighting factor</em>”, <span class="math notranslate nohighlight">\(w_i\)</span>. The the gradient of the line of best fit from a weighted regression may be determined using the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42fb2ace-6d1c-4d1b-91f0-c437432559ae">
-<span class="eqno">(32)<a class="headerlink" href="#equation-42fb2ace-6d1c-4d1b-91f0-c437432559ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bb26ccc4-92eb-4cc3-9e83-2c7ccfe163d4">
+<span class="eqno">(32)<a class="headerlink" href="#equation-bb26ccc4-92eb-4cc3-9e83-2c7ccfe163d4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     m = \frac{\sum w_i \sum (w_i x_i y_i) - \sum (w_i x_i) \sum (w_i y_i)}{\sum w_i \sum \left(w_i x_i^2 \right) - \left( \sum (w_i x_i) \right)^2},
 \end{equation}\]</div>
 <p>and the error associated with this gradient is calculable using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9550af11-d550-4bc5-af27-e67c021a94ae">
-<span class="eqno">(33)<a class="headerlink" href="#equation-9550af11-d550-4bc5-af27-e67c021a94ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0a57bae3-f5ff-471d-b171-9cfff50397f0">
+<span class="eqno">(33)<a class="headerlink" href="#equation-0a57bae3-f5ff-471d-b171-9cfff50397f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \Delta m = \sqrt{\frac{\sum w_i}{\sum w_i \sum \left(w_i x_i^2 \right) - \left( \sum (w_i x_i) \right)^2}}.
 \end{equation}\]</div>
 <p>The intercept of the line of best fit from a weighted regression is determined using using the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-753fa696-3c44-4db5-8623-ceb0666a5979">
-<span class="eqno">(34)<a class="headerlink" href="#equation-753fa696-3c44-4db5-8623-ceb0666a5979" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c21f3039-4d3b-44d6-93c7-6342bd91eea7">
+<span class="eqno">(34)<a class="headerlink" href="#equation-c21f3039-4d3b-44d6-93c7-6342bd91eea7" title="Permalink to this equation">#</a></span>\[\begin{equation}
     c = \frac{ \sum (w_i x_i^2) \sum (w_i y_i) - \sum (w_i x_i) \sum (w_i x_i y_i)}{\sum w_i \sum \left(w_i x_i^2\right) - \left( \sum (w_i x_i) \right)^2},
 \end{equation}\]</div>
 <p>and the error associated with this intercept is calculable using:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41cfdc7f-c74a-4eb1-9cec-323f8da0a41e">
-<span class="eqno">(35)<a class="headerlink" href="#equation-41cfdc7f-c74a-4eb1-9cec-323f8da0a41e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4c2e26d3-f87c-4168-9ae4-378f436ef4d5">
+<span class="eqno">(35)<a class="headerlink" href="#equation-4c2e26d3-f87c-4168-9ae4-378f436ef4d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \Delta c = \sqrt{\frac{\sum \left(w_i x_i^2\right)}{\sum w_i \sum \left(w_i x_i^2 \right) - \left( \sum (w_i x_i) \right)^2}}.
 \end{equation}\]</div>
 <p>In order to evalute these equations, we must first determine the weighting factor for each value. The weighting factor must minimize the impact that data points with large associated error bars have on the overall fit - therefore the weighting factor must be small for large associated uncertainties and large for small associated uncertainties. Accordingly the weighting factor for each data point is defined as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00f6dcce-c8d8-4abc-add3-ed71e3fb48a5">
-<span class="eqno">(36)<a class="headerlink" href="#equation-00f6dcce-c8d8-4abc-add3-ed71e3fb48a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-771e97fb-d476-4f16-9175-e1cb728892c2">
+<span class="eqno">(36)<a class="headerlink" href="#equation-771e97fb-d476-4f16-9175-e1cb728892c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
  w_i = \frac{1}{\Delta y_i^2},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta y_i\)</span> represents the uncertainty associated with a given data point in the y-direction. In other texts, <span class="math notranslate nohighlight">\(\alpha\)</span> is used to represent the uncertainty rather than <span class="math notranslate nohighlight">\(\Delta\)</span>.</p>
@@ -544,8 +545,8 @@ document.write(`
 <h2>Non-Linear Regression<a class="headerlink" href="#non-linear-regression" title="Permalink to this heading">#</a></h2>
 <p>It is likely that all of the expeirments that you have performed in the experimental labs thus far have required you to be able to fit to a linear dataset. This may have required you to linearise your data by rearranging an equation into a <span class="math notranslate nohighlight">\(y =mx+c\)</span> format which is simple to do in many cases, however in many instances it is difficult to do this. In these circumstances it would be far easier to fit a non-linear model to the data.</p>
 <p>A “non-linear model” simply means we are not longer fitting a straight line of best fit to determine the optimal values for the gradient and intercept. Instead, we will be optimising the values of other parameters. For example, if I wanted to fit a model to data that follows a normal distribution, I may fit it using a Gaussian profile:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85610957-d9f3-4655-9d2b-30936f52b182">
-<span class="eqno">(37)<a class="headerlink" href="#equation-85610957-d9f3-4655-9d2b-30936f52b182" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4fcd9847-1c98-4d70-ac05-cfdeae2a2827">
+<span class="eqno">(37)<a class="headerlink" href="#equation-4fcd9847-1c98-4d70-ac05-cfdeae2a2827" title="Permalink to this equation">#</a></span>\[\begin{equation}
  f(x) = a e^{-\frac{(x-b)^2}{2c^2}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> represents the height of the distribution, <span class="math notranslate nohighlight">\(b\)</span> represents the mean value of the distribution, and <span class="math notranslate nohighlight">\(c\)</span> represents the standard deviation of the distribution.</p>
@@ -553,12 +554,12 @@ document.write(`
 <p>Using a non-linear fitting routine, I am able to extract values of the parameters <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>. For example:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/bf95efebda1fd56251e910e1a3212ef2e0c41cfd1c6b09326651c076c72b6724.png" src="_images/bf95efebda1fd56251e910e1a3212ef2e0c41cfd1c6b09326651c076c72b6724.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The height of this distribution is equal to:  49.6 +/- 0.7 
+<img alt="_images/436a69c638309a65c04eaf8a4fdad8631bdb3abea267a82deaf4514453eb96b6.png" src="_images/436a69c638309a65c04eaf8a4fdad8631bdb3abea267a82deaf4514453eb96b6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The height of this distribution is equal to:  49.8 +/- 0.7 
 
-The mean value of this distribution is equal to:  150.2 +/- 0.4 
+The mean value of this distribution is equal to:  150.4 +/- 0.4 
 
-The standard deviation of this distribution is equal to:  25.2 +/- 0.4 
+The standard deviation of this distribution is equal to:  24.8 +/- 0.4 
 </pre></div>
 </div>
 </div>
@@ -566,8 +567,8 @@ The standard deviation of this distribution is equal to:  25.2 +/- 0.4
 <div class="section" id="weighted-non-linear-regression">
 <h3>Weighted Non-Linear Regression<a class="headerlink" href="#weighted-non-linear-regression" title="Permalink to this heading">#</a></h3>
 <p>When fitting the Gaussian above, I have again assumed homoscedasicity, however we can also perform a weighted non-linear regression. The key difference when performing a weighted non-linear and weighted linear regression is that we weight the residuals according to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-019a11c3-657c-46fd-aa54-31000a53d2b7">
-<span class="eqno">(38)<a class="headerlink" href="#equation-019a11c3-657c-46fd-aa54-31000a53d2b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-265811dd-c981-499f-82e8-44801a64dad0">
+<span class="eqno">(38)<a class="headerlink" href="#equation-265811dd-c981-499f-82e8-44801a64dad0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 R_i = \frac{y_i -y_{model}}{\Delta y_i}.
 \end{equation}\]</div>
 <p>The fitting proceedure performed again minimises these residuals as was the case for the linear regression.</p>
@@ -804,18 +805,18 @@ The intercept of the line of best fit is:  0.1 +/- 0.1
 <p>The final thing that I would like you to consider is how we assess the quality of a fit - e.g. is the model we have fit to the data any good?</p>
 <p>In order to do this we must calculate the reduced chi-sqaure (pronounced “kai-sqaure”), <span class="math notranslate nohighlight">\(\chi^2_{\nu}\)</span>, which provides a quantitative measure of whether a model is representative of the data it has been fit to taking into consideration the size of the error bars on the data points.</p>
 <p>Before we calculate the <span class="math notranslate nohighlight">\(\chi^2_{\nu}\)</span> we must calculate <span class="math notranslate nohighlight">\(\chi^2\)</span> (i.e. not reduced). We can do this using the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-820f2e34-3127-4aff-8ee3-308299dfbeea">
-<span class="eqno">(39)<a class="headerlink" href="#equation-820f2e34-3127-4aff-8ee3-308299dfbeea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dba3dabf-7b0d-4856-bb99-388a0ccddec7">
+<span class="eqno">(39)<a class="headerlink" href="#equation-dba3dabf-7b0d-4856-bb99-388a0ccddec7" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \chi^2 = \sum{\frac{\left(y_i-y_i(x) \right) ^2}{\Delta y_i^2}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_i\)</span> is the measured value of y associated with <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(y_i(x)\)</span> is the value of y predicted by the model for the given value of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\Delta y_i\)</span> is the error associated with our measured value <span class="math notranslate nohighlight">\(y_i\)</span>. To determine <span class="math notranslate nohighlight">\(\chi^2_{\nu}\)</span>, we must divide our <span class="math notranslate nohighlight">\(\chi^2\)</span> by the number of degrees of freedom, <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-44267b19-3ad3-4b5e-a169-a8e485444e54">
-<span class="eqno">(40)<a class="headerlink" href="#equation-44267b19-3ad3-4b5e-a169-a8e485444e54" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8ce40cc1-c97a-49a0-a857-cafc4fe3b258">
+<span class="eqno">(40)<a class="headerlink" href="#equation-8ce40cc1-c97a-49a0-a857-cafc4fe3b258" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \chi^2_{\nu} = \frac{\chi^2}{\nu}.
 \end{equation}\]</div>
 <p>To determine the number of degrees of freedom, <span class="math notranslate nohighlight">\(\nu\)</span>, we simply take the number of data points in our sample, <span class="math notranslate nohighlight">\(N\)</span>, and the number of parameters that we are extracting from our model, <span class="math notranslate nohighlight">\(n\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ffcac46-7670-4446-b3b8-296f227a3319">
-<span class="eqno">(41)<a class="headerlink" href="#equation-6ffcac46-7670-4446-b3b8-296f227a3319" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0bd50987-b8c7-4c5d-9bf5-a0fc11e94481">
+<span class="eqno">(41)<a class="headerlink" href="#equation-0bd50987-b8c7-4c5d-9bf5-a0fc11e94481" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \nu = N - n.
 \end{equation}\]</div>
 <p>For example, if fitting a linear model to a dataset with <span class="math notranslate nohighlight">\(10\)</span> data points, we are extracting <span class="math notranslate nohighlight">\(2\)</span> parameters from the model (the gradient and the intercept), therefore the number of degrees of freedom would simply equal <span class="math notranslate nohighlight">\(8\)</span>.</p>
@@ -824,8 +825,8 @@ The intercept of the line of best fit is:  0.1 +/- 0.1
 <h3>Interpretting the <span class="math notranslate nohighlight">\(\chi^2_{\nu}\)</span><a class="headerlink" href="#interpretting-the-chi-2-nu" title="Permalink to this heading">#</a></h3>
 <p>Once <span class="math notranslate nohighlight">\(\chi^2_{\nu}\)</span> has been determined for a given model and dataset, we are able to gauge if the fit is suitible. We would expect that if the model was representative of the data and the error bars associated with the data points were an appropriate size, <span class="math notranslate nohighlight">\(\chi^2_{\nu} \approx 1\)</span>.
 Considering the equation we used to calculate <span class="math notranslate nohighlight">\(\chi^2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2e6a5d9-b29d-4fdf-97cf-0985a18cca36">
-<span class="eqno">(42)<a class="headerlink" href="#equation-a2e6a5d9-b29d-4fdf-97cf-0985a18cca36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2c603741-3671-4fe3-a610-df8bc40fc6f6">
+<span class="eqno">(42)<a class="headerlink" href="#equation-2c603741-3671-4fe3-a610-df8bc40fc6f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \chi^2 = \sum{\frac{\left(y_i-y_i(x) \right) ^2}{\Delta y_i^2}},
 \end{equation}\]</div>
 <p>A larger than 1 value of <span class="math notranslate nohighlight">\(\chi^2_{\nu}\)</span> can be attributed to two things:</p>
@@ -863,8 +864,8 @@ Considering the equation we used to calculate <span class="math notranslate nohi
 <p>Having read through the materials above, I would now like you to put into practise what you have learnt by performing various linear and non-linear fitting (both weighted and non-weighted fits). Data for you to fit models to has been provided on CoCalc. You will need to import this data using an appropriate package.</p>
 <div class="section" id="linear-fitting">
 <h3>1. Linear Fitting<a class="headerlink" href="#linear-fitting" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-269b2824-c3d5-4a90-988e-50d5ebf06ff9">
-<span class="eqno">(43)<a class="headerlink" href="#equation-269b2824-c3d5-4a90-988e-50d5ebf06ff9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d4f2810-c1bd-4b79-9e1f-645c3404e18f">
+<span class="eqno">(43)<a class="headerlink" href="#equation-3d4f2810-c1bd-4b79-9e1f-645c3404e18f" title="Permalink to this equation">#</a></span>\[\begin{equation}
  y = mx + c
 \end{equation}\]</div>
 <ol class="arabic simple">
@@ -881,8 +882,8 @@ Considering the equation we used to calculate <span class="math notranslate nohi
 </div>
 <div class="section" id="the-gaussian-profile">
 <h3>2. The Gaussian Profile<a class="headerlink" href="#the-gaussian-profile" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-124b96e8-ea8d-40d9-badc-678af510c10e">
-<span class="eqno">(44)<a class="headerlink" href="#equation-124b96e8-ea8d-40d9-badc-678af510c10e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5ae64750-f792-4cc3-8d30-1ef4d13f6fc3">
+<span class="eqno">(44)<a class="headerlink" href="#equation-5ae64750-f792-4cc3-8d30-1ef4d13f6fc3" title="Permalink to this equation">#</a></span>\[\begin{equation}
  f(x) = a e^{-\frac{(x-b)^2}{2c^2}} + d,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> represents the height of the distribution, <span class="math notranslate nohighlight">\(b\)</span> represents the mean value of the distribution, <span class="math notranslate nohighlight">\(c\)</span> represents the standard deviation of the distribution and <span class="math notranslate nohighlight">\(d\)</span> represents a baseline of background noise.</p>
@@ -896,8 +897,8 @@ Considering the equation we used to calculate <span class="math notranslate nohi
 </div>
 <div class="section" id="the-exponential-decay">
 <h3>3. The Exponential Decay<a class="headerlink" href="#the-exponential-decay" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-05e2d799-22dd-45c1-bf05-2c0c6f039670">
-<span class="eqno">(45)<a class="headerlink" href="#equation-05e2d799-22dd-45c1-bf05-2c0c6f039670" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4b39eb92-ea51-4dc6-bb52-7e6a5da30d76">
+<span class="eqno">(45)<a class="headerlink" href="#equation-4b39eb92-ea51-4dc6-bb52-7e6a5da30d76" title="Permalink to this equation">#</a></span>\[\begin{equation}
  N = N_0 e^{-\lambda t} + b,
 \end{equation}\]</div>
 <ol class="arabic simple">
@@ -910,8 +911,8 @@ Considering the equation we used to calculate <span class="math notranslate nohi
 </div>
 <div class="section" id="the-power-law">
 <h3>4. The Power Law<a class="headerlink" href="#the-power-law" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-2dbc46e9-15f9-4521-bfc3-ce9189c54e36">
-<span class="eqno">(46)<a class="headerlink" href="#equation-2dbc46e9-15f9-4521-bfc3-ce9189c54e36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eecdc25f-c392-46c6-b39a-eeda7bd5b132">
+<span class="eqno">(46)<a class="headerlink" href="#equation-eecdc25f-c392-46c6-b39a-eeda7bd5b132" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = x^n + b
 \end{equation}\]</div>
 <ol class="arabic simple">
@@ -922,8 +923,8 @@ f(x) = x^n + b
 </div>
 <div class="section" id="sine-cosine-convolution">
 <h3>5. Sine-Cosine Convolution<a class="headerlink" href="#sine-cosine-convolution" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-000976a9-069b-48bb-a7f0-d26deb991241">
-<span class="eqno">(47)<a class="headerlink" href="#equation-000976a9-069b-48bb-a7f0-d26deb991241" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-30f32e26-c3d8-4066-83ce-53fe5737097f">
+<span class="eqno">(47)<a class="headerlink" href="#equation-30f32e26-c3d8-4066-83ce-53fe5737097f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = A(sin(nx) + cos(mx))
 \end{equation}\]</div>
 <ol class="arabic simple">
